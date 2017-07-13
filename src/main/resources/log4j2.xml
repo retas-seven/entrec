@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off">
+    <Properties>
+        <Property name="logformat">%date{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%15thread] %class#%method@%4line : %message %n</Property>
+        <Property name="stdformat">%date{HH:mm:ss.SSS} %-5p [%15thread] %class#%method@%4line : %message %n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="${stdformat}" />
+        </Console>
+        <File name="logfile" fileName="/opt/ok/logs/error.log">
+             <PatternLayout pattern="${logformat}" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="net.live_on.itariya" additivity="false" level="INFO">
+            <AppenderRef ref="stdout" level="DEBUG"/>
+            <AppenderRef ref="logfile" level="ERROR"/>
+        </Logger>
+    </Loggers>
+</Configuration>

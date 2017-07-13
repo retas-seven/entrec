@@ -1,0 +1,76 @@
+.ui-clock {
+	font-size: 1.8em;
+	font-family: sans-serif;
+	font-weight: lighter;
+	padding: 1px 19px;
+}
+
+.ui-datepicker {
+    width: 19em;
+}
+
+.center_table {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+div.login_box{
+	width: 700px;
+	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-top: 50px;
+}
+
+td.str_cell {
+	text-align: center;
+	width:15%;
+}
+
+td.week_cell {
+	text-align: center;
+	width:5%;
+}
+
+td.center {
+	text-align: center;
+}
+
+td.example3 { padding: 0 0 0 0; }
+
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /* background: url(../img/check_off.png); */
+    background-size: contain;
+}
+
+input[type="checkbox"]:checked:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../img/check_on6.png);
+    background-size: 25px 25px;
+}
+
+input[type=radio] {
+	position: absolute;
+	z-index: -1;
+}
+
+input[type=radio] + label {
+	display: block;
+	min-height: 16px;
+	padding: 7px 0 7px 40px;
+	background: transparent url(../img/off.png) no-repeat scroll left center;
+}
+
+input[type=radio]:checked + label {
+	background-image: url(../img/on.png);
+}
