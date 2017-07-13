@@ -8,15 +8,15 @@
 
 * ログイン
 
-![代替テキスト](readme\login.png)
+![代替テキスト](\readme\login.png)
 
 * 新規ユーザ登録
 
-![代替テキスト](readme\regist.png)
+![代替テキスト](\readme\regist.png)
 
 * 記録
 
-![代替テキスト](readme\record.png)
+![代替テキスト](\readme\record.png)
 
 - - -
 - - -
