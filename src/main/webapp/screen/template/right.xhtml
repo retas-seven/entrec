@@ -13,7 +13,7 @@
     <body>
         <ui:composition>
         	<p:calendar id="calendar_date" mode="inline" width="200" value="#{checklistAction.checklistForm.calendarDate}" locale="ja" >
-
+				<p:ajax event="click" execute="@this" listener="#{checklistAction.changeMonth()}" render="tbl"/>
         	</p:calendar>
 			<p:commandButton id="changeMonthBtn" action="#{checklistAction.changeMonth()}" value="月を変更" />
 

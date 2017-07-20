@@ -53,14 +53,14 @@
 
 			        <p:column headerText="入館時刻" style="width:13%;" class="center">
 						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryTime}" ><f:convertDateTime pattern="HH:mm" /></h:outputText></f:facet>
+			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
 			                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.entryTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
 			            </p:cellEditor>
 					</p:column>
 
 			        <p:column headerText="退館時刻" style="width:13%;" class="center">
 						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitTime}" ><f:convertDateTime pattern="HH:mm" /></h:outputText></f:facet>
+			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
 			                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.exitTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
 			            </p:cellEditor>
 					</p:column>

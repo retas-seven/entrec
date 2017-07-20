@@ -10,12 +10,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/layout.css"/>
         <h:outputScript library="js" name="calendar_str_jp.js" />
+        <h:outputScript library="js" name="check_list.js" />
         <title>Facelets Template</title>
     </h:head>
 
     <h:body>
         <h:outputStylesheet name="/css/general.css" />
-        <form jsf:id="fm">
+        <h:form id="fm" prependId="false">
 	    	<div id="global">
 		        <div id="top">
 		            <ui:insert name="top">
@@ -31,6 +32,6 @@
 	                <ui:insert name="content"></ui:insert>
 	            </div>
 		    </div>
-		</form>
+		</h:form>
     </h:body>
 </html>
