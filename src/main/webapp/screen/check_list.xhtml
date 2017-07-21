@@ -84,10 +84,11 @@
 			        <p:column headerText="戸・窓の施錠" style="width:7%;" class="center">
 			            <h:selectBooleanCheckbox value="#{row.checkHistory.doorWindowLock}" />
 					</p:column>
-				</p:dataTable>
 
-        		<hr style="margin: 15px 0px 15px 0px;"/>
-				<p:commandButton id="registBtn" action="#{checklistAction.regist()}" value="保存" />
+					<f:facet name="footer">
+						&#160;
+			        </f:facet>
+				</p:dataTable>
 
 	        </ui:define>
         </ui:composition>

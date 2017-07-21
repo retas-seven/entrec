@@ -13,12 +13,11 @@
     <body>
         <ui:composition>
         	<p:calendar id="calendar_date" mode="inline" width="200" value="#{checklistAction.checklistForm.calendarDate}" locale="ja" >
-				<p:ajax event="click" execute="@this" listener="#{checklistAction.changeMonth()}" render="tbl"/>
+				<p:ajax event="dateSelect" execute="@form" listener="#{checklistAction.changeMonth()}" update="tbl"/>
         	</p:calendar>
-			<p:commandButton id="changeMonthBtn" action="#{checklistAction.changeMonth()}" value="月を変更" />
 
-
-			<!-- <p><pe:analogClock width="200" /></p> -->
+       		<hr style="margin: 30px 0px 15px 0px;"/>
+			<p:commandButton id="registBtn" icon="ui-icon-check" action="#{checklistAction.regist()}" value="保存" />
 
         </ui:composition>
     </body>

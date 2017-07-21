@@ -44,11 +44,16 @@ public class ChecklistAction implements Serializable {
     	checklistLogic.initChecklist(targetDate);
     }
 
+//    @Interceptors(GeneralInterceptor.class)
+//    public String changeMonth() {
+//    	System.out.println(">>>>>" + checklistForm.getCalendarDate());
+//    	String ret = "/screen/check_list?faces-redirect=true";
+//        return ret;
+//    }
+
     @Interceptors(GeneralInterceptor.class)
-    public String changeMonth() {
-    	System.out.println(">>>>>" + checklistForm.getCalendarDate());
-    	String ret = "/screen/check_list?faces-redirect=true";
-        return ret;
+    public void changeMonth() {
+    	checklistLogic.initChecklist(checklistForm.getCalendarDate());
     }
 
     @Interceptors(GeneralInterceptor.class)
