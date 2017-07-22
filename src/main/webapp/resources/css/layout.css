@@ -8,7 +8,7 @@
 
 #top {
     position: relative;
-    /* background-color: #fdf5f0; */
+    background-color: #fdf5f0;
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
@@ -17,7 +17,7 @@
 
 #bottom {
     position: relative;
-    /* background-color: #c2dfef; */
+    background-color: #c2dfef;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
@@ -35,7 +35,7 @@
     /* background-color: #fdf5f0; */
     padding: 5px;
     width: 350px;
-    height: 820px;
+    /* height: 820px; */
     margin: 0px 0px 0px 0px;
  	/* border-left: 1px solid #FF9900; */
 }

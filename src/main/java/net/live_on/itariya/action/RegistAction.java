@@ -3,6 +3,8 @@ package net.live_on.itariya.action;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,9 +34,31 @@ public class RegistAction implements Serializable {
 
     @Interceptors(GeneralInterceptor.class)
     public String regist() {
+    	if (!inputCheck()) {
+    		//ApUtil.addMessage("パスワードと確認用パスワードが不一致です。");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "パスワードと確認用パスワードが不一致です。",  "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+    		// 元画面に戻る
+    		return null;
+    	}
+
     	registLogic.registNewUser();
     	String ret = "/screen/login?faces-redirect=true";
         return ret;
+    }
+
+    /**
+     * パスワードと確認用パスワードの一致チェック
+     * @return チェック結果
+     */
+    private boolean inputCheck() {
+    	boolean ret = false;
+    	if (form.getPassword().equals(form.getCofirmPassword())) {
+    		ret = true;
+    	}
+
+    	return ret;
     }
 
     @Interceptors(GeneralInterceptor.class)

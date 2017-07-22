@@ -3,6 +3,8 @@ package net.live_on.itariya.action;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -45,8 +47,13 @@ public class LoginAction implements Serializable {
     	if (loginResult) {
     		ret = "/screen/check_list?faces-redirect=true";
     	} else {
-    		ApUtil.addMessage("メールアドレスまたはパスワードが無効です。");
-    		ret = "/screen/login?faces-redirect=true";
+//    		ApUtil.addMessage("メールアドレスまたはパスワードが無効です。");
+//    		ret = "/screen/login?faces-redirect=true";
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "メールアドレスまたはパスワードが無効です。",  "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+            // 元画面に戻る
+            return null;
     	}
 
         return ret;

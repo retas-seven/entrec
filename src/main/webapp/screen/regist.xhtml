@@ -19,6 +19,8 @@
             <form jsf:id="fm">
             	<p:growl id="growl" />
             	<p:panel id="pnl" header="新規登録" style="margin-bottom:10px;">
+            		<h:outputText value="#{flash.flash_key_message}" escape="false" />
+
 	                <p>メールアドレス</p>
 	                <p:inputText id="mail" value="#{registAction.form.mail}" size="60" />
 

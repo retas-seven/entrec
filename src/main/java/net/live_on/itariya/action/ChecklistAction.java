@@ -3,6 +3,8 @@ package net.live_on.itariya.action;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
 
@@ -57,10 +59,12 @@ public class ChecklistAction implements Serializable {
     }
 
     @Interceptors(GeneralInterceptor.class)
-    public String regist() {
+    public void regist() {
     	checklistLogic.registChecklist();
-    	String ret = "/screen/check_list?faces-redirect=true";
-        return ret;
+//    	String ret = "/screen/check_list?faces-redirect=true";
+//        return ret;
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
 //    @Interceptors(GeneralInterceptor.class)
@@ -75,7 +79,7 @@ public class ChecklistAction implements Serializable {
 //    }
 
 //	public ChecklistForm getChecklistForm() {
-//		return checklistForm;
+//		return checklistForm
 //	}
 //
 //	public void setChecklistForm(ChecklistForm checklistForm) {

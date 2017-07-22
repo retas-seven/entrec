@@ -12,7 +12,6 @@ import net.live_on.itariya.validator.NameNotEmpty;
 @Data
 public class RegistForm implements Serializable {
 	private static final long serialVersionUID = 1;
-
     /** メールアドレス */
     @NameNotEmpty(name = "メールアドレス")
     private String mail;
@@ -24,30 +23,5 @@ public class RegistForm implements Serializable {
     /** 確認用パスワード（一致チェック用） */
     @NameNotEmpty(name = "確認用パスワード")
     private String cofirmPassword;
-
-
-//	public String getMail() {
-//		return mail;
-//	}
-//
-//	public void setMail(String mail) {
-//		this.mail = mail;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public String getCofirmPassword() {
-//		return cofirmPassword;
-//	}
-//
-//	public void setCofirmPassword(String cofirmPassword) {
-//		this.cofirmPassword = cofirmPassword;
-//	}
 }
 
