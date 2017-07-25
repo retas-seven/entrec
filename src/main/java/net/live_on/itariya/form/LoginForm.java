@@ -22,31 +22,5 @@ public class LoginForm implements Serializable {
 
     /** 自動ログイン */
     private boolean autoLogin;
-
-//	public String getMail() {
-//		return mail;
-//	}
-//
-//	public void setMail(String mail) {
-//		this.mail = mail;
-//	}
-//
-//	public String getPassword() {
-//		return password;
-//	}
-//
-//	public void setPassword(String password) {
-//		this.password = password;
-//	}
-//
-//	public boolean isAutoLogin() {
-//		return autoLogin;
-//	}
-//
-//	public void setAutoLogin(boolean autoLogin) {
-//		this.autoLogin = autoLogin;
-//	}
-
-
 }
 

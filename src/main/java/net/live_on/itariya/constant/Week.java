@@ -9,7 +9,6 @@ import java.util.Map;
  * 曜日のEnumクラス
  */
 public enum Week {
-
 	SUNDAY(String.valueOf(Calendar.SUNDAY), "日"),
 	MONDAY(String.valueOf(Calendar.MONDAY), "月"),
 	TUESDAY(String.valueOf(Calendar.TUESDAY), "火"),

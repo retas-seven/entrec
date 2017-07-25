@@ -8,7 +8,7 @@ import javax.faces.convert.FacesConverter;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * YYYY/MM/DD形式コンバータ
+ * MM/DD形式コンバータ
  */
 @FacesConverter("SlashDateConverter")
 public class SlashDateConverter implements Converter {

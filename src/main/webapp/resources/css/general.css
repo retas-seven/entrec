@@ -25,6 +25,19 @@
 	margin-top: 20px;
 }
 
+.top_logout_button {
+	width: 40px;
+	height: 40px;
+	background-image: url(../img/logout.png);
+	background-repeat: no-repeat;
+}
+
+.logout_icon {
+	background-image: url(../img/logout.png) !important;
+	background-repeat: no-repeat;
+}
+
+
 .bottom_area {
 	position: absolute;
 	bottom: 0;
@@ -90,3 +103,5 @@ input[type=radio] + label {
 input[type=radio]:checked + label {
 	background-image: url(../img/on.png);
 }
+
+

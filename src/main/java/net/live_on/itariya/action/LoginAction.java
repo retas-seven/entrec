@@ -70,19 +70,4 @@ public class LoginAction implements Serializable {
 
         return ret;
     }
-
-//    @Interceptors(GeneralInterceptor.class)
-//    public String logout() {
-//    	loginLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
-//    	String ret = "/screen/login?faces-redirect=true";
-//    	return ret;
-//    }
-
-//	public LoginForm getForm() {
-//		return form;
-//	}
-//
-//	public void setForm(LoginForm form) {
-//		this.form = form;
-//	}
 }

@@ -17,22 +17,5 @@ public class ChecklistForm implements Serializable {
 	private Date calendarDate;
 
 	private List<ChecklistRow> checklistRowList;
-
-//	public Date getCalendarDate() {
-//		return calendarDate;
-//	}
-//
-//	public void setCalendarDate(Date calendarDate) {
-//		this.calendarDate = calendarDate;
-//	}
-//
-//	public List<ChecklistRow> getChecklistRowList() {
-//		return checklistRowList;
-//	}
-//
-//	public void setChecklistRowList(List<ChecklistRow> checklistRowList) {
-//		this.checklistRowList = checklistRowList;
-//	}
-
 }
 
