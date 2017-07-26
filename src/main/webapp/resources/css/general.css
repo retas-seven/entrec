@@ -37,6 +37,15 @@
 	background-repeat: no-repeat;
 }
 
+.align_left {
+  text-align: left;
+  float: left
+}
+
+.align_right {
+  text-align: right;
+}
+
 
 .bottom_area {
 	position: absolute;

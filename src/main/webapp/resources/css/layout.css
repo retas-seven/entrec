@@ -10,8 +10,8 @@
     position: relative;
     background-color: #fdf5f0;
     color: white;
-    padding: 5px;
-    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    margin: 25px 0px 12px 0px;
     height: 40px;
 }
 
@@ -19,7 +19,7 @@
     position: relative;
     background-color: #c2dfef;
     padding: 5px;
-    margin: 10px 0px 0px 0px;
+    margin: 30px 0px 0px 0px;
 }
 
 #left {
@@ -34,7 +34,7 @@
     float: right;
     /* background-color: #fdf5f0; */
     padding: 5px;
-    width: 350px;
+    width: 342px;
     /* height: 820px; */
     margin: 0px 0px 0px 0px;
  	/* border-left: 1px solid #FF9900; */

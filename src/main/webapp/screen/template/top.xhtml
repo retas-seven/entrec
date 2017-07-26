@@ -8,7 +8,15 @@
 
     <body>
         <ui:composition>
-			<p:commandButton id="logoutBtn" styleClass="top_logout_button" action="#{logoutAction.logout()}" value="" alt="ログアウト"/>
+        	<div class="align_left">
+				<p:graphicImage value="resources/img/entrec.png" style="height: 40px; width:170px;"/>
+			</div>
+
+			<div class="align_right">
+				<p:commandLink action="#{logoutAction.logout()}">
+				    <p:graphicImage value="resources/img/logout.png" title="ログアウト" />
+				</p:commandLink>
+			</div>
         </ui:composition>
     </body>
 </html>
