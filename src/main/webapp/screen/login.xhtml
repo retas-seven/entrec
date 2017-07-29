@@ -10,14 +10,19 @@
     <h:head>
         <meta charset="UTF-8" />
         <h:outputScript name="jsf.js" library="javax.faces"/>
+        <h:outputStylesheet name="/css/html5reset-1.6.1.css" />
         <h:outputStylesheet name="/css/general.css" />
         <title>ログイン</title>
     </h:head>
 
-    <h:body>
+    <h:body style="margin:0px;">
 		<f:metadata>
 			<f:viewAction action="#{loginAction.autoLogin()}" onPostback="true" />
 		</f:metadata>
+		<div class="top_bar">
+			<p:graphicImage library="img" name="entrec.png" style="height: 40px; width:160px;"/>
+        </div>
+
         <div class="login_box">
             <form jsf:id="fm">
             	<p:growl id="growl" />

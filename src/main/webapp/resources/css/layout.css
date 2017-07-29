@@ -7,11 +7,10 @@
 }
 
 #top {
-    position: relative;
-    background-color: #fdf5f0;
-    color: white;
+    /* position: relative; */
+    background-color: rgb(151, 210, 200);
     padding: 0px;
-    margin: 25px 0px 12px 0px;
+    margin: 0px 0px 85px 0px;
     height: 40px;
 }
 

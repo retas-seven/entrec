@@ -14,15 +14,16 @@
         <title>入退館記録</title>
     </h:head>
 
-    <h:body>
+    <h:body style="margin:0px;">
         <h:outputStylesheet name="/css/general.css" />
         <h:form id="fm" prependId="false">
+       		<div id="top">
+	            <ui:insert name="top">
+	            	<ui:include src="top.xhtml" />
+	            </ui:insert>
+	        </div>
+
 	    	<div id="global">
-		        <div id="top">
-		            <ui:insert name="top">
-		            	<ui:include src="top.xhtml" />
-		            </ui:insert>
-		        </div>
 	            <div id="right">
 	                <ui:insert name="right">
 	                	<ui:include src="right.xhtml" />

@@ -5,6 +5,15 @@
 	padding: 1px 19px;
 }
 
+.top_bar {
+    /* position: relative; */
+    background-color: rgb(151, 210, 200);
+    /* background-color: rgb(244, 240, 236); */
+    padding: 0px;
+    margin: 0px 0px 85px 0px;
+    height: 40px;
+}
+
 .ui-datepicker {
     width: 19em;
 }

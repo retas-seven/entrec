@@ -19,7 +19,7 @@
 
   <context-param>
     <param-name>primefaces.THEME</param-name>
-    <param-value>humanity</param-value>
+    <param-value>entrec-default</param-value>
   </context-param>
 
   <error-page>
