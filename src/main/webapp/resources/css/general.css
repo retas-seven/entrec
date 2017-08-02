@@ -26,6 +26,11 @@
 .regist_button {
 	width: 100%;
 	padding: 10px;
+	/* background-image: url(../img/logout.png) !important; */
+	background-color: rgb(251, 222, 169);
+	border-color: rgb(183, 131, 70);
+	/* background-repeat: no-repeat; */
+	color: rgb(153, 101, 20);
 }
 
 .logout_button {
@@ -80,6 +85,14 @@ td.week_cell {
 
 td.center {
 	text-align: center;
+}
+
+th.header_color {
+	background-color: rgb(231, 254, 254);
+}
+
+td.cell_color {
+	background-color: rgb(249, 255, 255);
 }
 
 td.example3 { padding: 0 0 0 0; }
