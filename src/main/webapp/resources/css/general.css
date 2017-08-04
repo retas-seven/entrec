@@ -1,8 +1,12 @@
 .ui-clock {
-	font-size: 1.8em;
-	font-family: sans-serif;
-	font-weight: lighter;
-	padding: 1px 19px;
+	font-size: 1.2em;
+	/* font-family: sans-serif; */
+	/* font-weight: lighter; */
+	padding: 5px 19px;
+	background: none;
+	border: 0px;
+	text-shadow: -2px -14px 0px #ffffff;
+	color: rgb(151, 210, 200);
 }
 
 .top_bar {
@@ -10,7 +14,7 @@
     background-color: rgb(151, 210, 200);
     /* background-color: rgb(244, 240, 236); */
     padding: 0px;
-    margin: 0px 0px 85px 0px;
+    margin: 0px 0px 0px 0px;
     height: 40px;
 }
 
@@ -135,4 +139,40 @@ input[type=radio]:checked + label {
 	background-image: url(../img/on.png);
 }
 
+#footer {
+	border-top: solid 10px rgb(151, 210, 200);
+	width: 100%;
+	margin-left: auto;
+ 	margin-right: auto;
+ 	margin-top: 150px;
+ 	margin-bottom: auto;
+	/* background-color: rgb(151, 210, 200); */
+    /* height: 140px; */
+}
 
+.footer_line {
+	border: none;
+	height: 10px;
+	width: 100%;
+	background-color: rgb(151, 210, 200);
+}
+
+.footer_link {
+	margin-top: 10px;
+	padding-left: 15px;
+	text-align: left;
+ 	float: left;
+}
+
+.footer_copyright {
+	margin-top: 10px;
+	padding-right: 15px;
+	text-align: right;
+ 	float: right;
+ 	color: #075c74;
+}
+
+a.footer_linkstr {
+	text-decoration: none;
+	color: #075c74;
+}

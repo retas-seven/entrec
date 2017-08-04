@@ -83,7 +83,7 @@ public final class SystemDateServletFilter implements Filter{
 
             // URLがPrettyFacesのものである場合
             if (!"/faces".equals(servletPath)) {
-            	if (!StringUtils.equalsAny(servletPath, "/login", "/regist")) {
+            	if (!StringUtils.equalsAny(servletPath, "/login", "/regist", "/doc/contact.html", "/doc/contact.html", "/doc/privacy_policy.html", "/doc/rule.html")) {
                 	execSessionCheck = true;
             	}
             }
