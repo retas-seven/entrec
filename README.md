@@ -10,7 +10,7 @@
 
 * ログイン
 
-![代替テキスト](/readme/login_2.png)
+![代替テキスト](readme/login_2.png)
 
 * 新規ユーザ登録
 
