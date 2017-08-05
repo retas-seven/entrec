@@ -6,19 +6,33 @@
 
 * 会社などの組織内にあるサーバにデプロイしてLAN内部で使う想定。
 
+* どのユーザでログインしても記録表は同じ。会社分けや組織分けといった考え方は今のところない。
+
 ## 画面
 
 * ログイン
 
-![代替テキスト](readme/login_2.png)
+![ログイン](readme/login_2.png)
 
 * 新規ユーザ登録
 
-![代替テキスト](/readme/regist_2.png)
+![新規ユーザ登録](readme/regist_2.png)
 
-* 記録
+* 記録表
 
-![代替テキスト](/readme/record_2.png)
+![記録](readme/record_2.png)
+
+## 開発環境
+
+* JDK1.8.0_74
+
+* JavaEE7, JSF2.2
+
+* Eclipse Neon 4.6.2
+
+* MySQL 5.7.14
+
+* payara 4.1.1.164
 
 - - -
 
