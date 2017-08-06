@@ -10,7 +10,7 @@
 }
 
 .bg_image{
-	background-image:url(../img/bg.jpg);
+	background-image:url(../img/bg_wave.jpg);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -27,8 +27,8 @@
 
 .body_general{
 	margin:0px;
-	background: #ffffff;
-	/*background-image:url(../img/bgnv.jpg);*/
+	/*background: #ffffff;*/
+	background-image:url(../img/bg_wave.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
