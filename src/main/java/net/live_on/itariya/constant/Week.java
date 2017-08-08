@@ -39,6 +39,9 @@ public enum Week {
 		this.name = str;
 	}
 
+	/**
+	 * 初期化
+	 */
 	static {
 		Week[] elements = Week.values();
 		Map<String, Week> codeMap = new HashMap<>();

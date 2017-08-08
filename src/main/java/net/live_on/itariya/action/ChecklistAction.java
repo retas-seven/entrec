@@ -3,6 +3,7 @@ package net.live_on.itariya.action;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -19,7 +20,6 @@ import net.live_on.itariya.util.ApDateUtil;
  */
 @javax.inject.Named
 @javax.enterprise.context.SessionScoped
-//@javax.faces.view.ViewScoped
 @Data
 public class ChecklistAction implements Serializable {
 	private static final long serialVersionUID = 1;
@@ -29,10 +29,12 @@ public class ChecklistAction implements Serializable {
 	ChecklistForm checklistForm;
 
 	/** チェックリスト処理ロジック */
-	//@EJB
-	@Inject
+	@EJB
 	ChecklistLogic checklistLogic;
 
+	/**
+	 * チェックリスト画面表示時の初期処理
+	 */
     @Interceptors(GeneralInterceptor.class)
     public void init() {
     	Date targetDate = null;
@@ -46,18 +48,17 @@ public class ChecklistAction implements Serializable {
     	checklistLogic.initChecklist(targetDate);
     }
 
-//    @Interceptors(GeneralInterceptor.class)
-//    public String changeMonth() {
-//    	System.out.println(">>>>>" + checklistForm.getCalendarDate());
-//    	String ret = "/screen/check_list?faces-redirect=true";
-//        return ret;
-//    }
-
+    /**
+     * 画面で選択された月でチェックリストを再構築する
+     */
     @Interceptors(GeneralInterceptor.class)
     public void changeMonth() {
     	checklistLogic.initChecklist(checklistForm.getCalendarDate());
     }
 
+    /**
+     * チェックリストの内容を保存する
+     */
     @Interceptors(GeneralInterceptor.class)
     public void regist() {
     	checklistLogic.registChecklist();
@@ -66,32 +67,4 @@ public class ChecklistAction implements Serializable {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-
-//    @Interceptors(GeneralInterceptor.class)
-//    public void onCellEdit(CellEditEvent event) {
-//        Object oldValue = event.getOldValue();
-//        Object newValue = event.getNewValue();
-//
-//        if(newValue != null && !newValue.equals(oldValue)) {
-//            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);
-//            FacesContext.getCurrentInstance().addMessage(null, msg);
-//        }
-//    }
-
-//	public ChecklistForm getChecklistForm() {
-//		return checklistForm
-//	}
-//
-//	public void setChecklistForm(ChecklistForm checklistForm) {
-//		this.checklistForm = checklistForm;
-//	}
-//
-//	public ChecklistLogic getChecklistLogic() {
-//		return checklistLogic;
-//	}
-//
-//	public void setChecklistLogic(ChecklistLogic checklistLogic) {
-//		this.checklistLogic = checklistLogic;
-//	}
-
 }

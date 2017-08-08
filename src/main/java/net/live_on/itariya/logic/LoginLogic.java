@@ -61,21 +61,6 @@ public class LoginLogic {
     	return true;
 	}
 
-//	public void logout (HttpServletRequest request, HttpServletResponse response) {
-//		HttpSession session = request.getSession(false);
-//
-//    	if (session != null) {
-//    		LoginUser loginUser = loginSession.getLoginUser();
-//
-//    		if (loginUser != null) {
-//    			deleteCookie(loginUser.getUserId(), request, response);
-//    		}
-//
-//    		// セッション情報を破棄する
-//    		session.invalidate();
-//    	}
-//	}
-
 	private void addLoginInfoToSession(User user) {
     	LoginUser loginUser = new LoginUser();
     	ApUtil.copyProperties(loginUser, user);

@@ -9,15 +9,15 @@
         <Console name="stdout" target="SYSTEM_OUT">
             <PatternLayout pattern="${stdformat}" />
         </Console>
-        <File name="logfile" fileName="/opt/ok/logs/error.log">
+        <File name="logfile" fileName="/opt/entrec/entrec_app.log">
              <PatternLayout pattern="${logformat}" />
         </File>
     </Appenders>
 
     <Loggers>
-        <Logger name="net.live_on.itariya" additivity="false" level="INFO">
+        <Logger name="net.live_on.itariya" additivity="false" level="DEBUG">
             <AppenderRef ref="stdout" level="DEBUG"/>
-            <AppenderRef ref="logfile" level="ERROR"/>
+            <AppenderRef ref="logfile" level="DEBUG"/>
         </Logger>
     </Loggers>
 </Configuration>

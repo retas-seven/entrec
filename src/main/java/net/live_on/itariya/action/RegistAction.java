@@ -32,6 +32,9 @@ public class RegistAction implements Serializable {
 	@EJB
 	RegistLogic registLogic;
 
+	/**
+	 * 新規ユーザ登録処理
+	 */
     @Interceptors(GeneralInterceptor.class)
     public String regist() {
     	if (!inputCheck()) {
@@ -60,6 +63,9 @@ public class RegistAction implements Serializable {
     	return ret;
     }
 
+    /**
+     * ログイン画面に戻る
+     */
     @Interceptors(GeneralInterceptor.class)
     public String back() {
     	String ret = "/screen/login?faces-redirect=true";

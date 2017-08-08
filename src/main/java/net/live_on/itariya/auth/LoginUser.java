@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import lombok.Data;
 
+/**
+ * ユーザ情報オブジェクト
+ */
 @Data
 public class LoginUser implements Serializable {
 	private static final long serialVersionUID = 1;

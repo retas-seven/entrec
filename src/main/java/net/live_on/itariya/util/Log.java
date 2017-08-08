@@ -4,6 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Log {
-	/** ロガー（Entrecではこのロガーを使用してログ出力する） */
+	/** ロガー（entrecではこのロガーを使用してログ出力する） */
 	public static final Logger out = LogManager.getLogger();
 }

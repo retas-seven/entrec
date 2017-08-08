@@ -16,10 +16,6 @@ public class GeneralInterceptor implements Serializable {
 	/** SerialVersionUID */
 	private static final long serialVersionUID = 1;
 
-//	/** システム日付取得用DAO */
-//	@Inject
-//    SystemDateDao systemDateDao;
-
 	/** コンストラクタ */
     public GeneralInterceptor(){}
 
@@ -36,11 +32,6 @@ public class GeneralInterceptor implements Serializable {
 
         // 業務処理開始ログ
     	Log.out.info(clazz.getCanonicalName() + "#" + method.getName() + "() start");
-
-//		// 業務処理で使用するためのシステム日付を取得する
-//		SystemDate systemDate = systemDateDao.getSystemDate();
-//		ApUtil.getRequest().setAttribute(ApConst.REQUEST_KEY_SYSTEM_DATE, systemDate);
-//		Log.out.info("システム日付：" + ApDateUtil.formatDateTime(systemDate.getSystemDate()));
 
     	try {
     		ret = context.proceed();

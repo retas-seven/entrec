@@ -31,6 +31,11 @@ public class CookieDao extends AbstractFacade<UserCookie> {
         super(UserCookie.class);
     }
 
+    /**
+     * クッキーの値をもとにユーザ情報を検索する
+     * @param cookieValue クッキーの値
+     * @return 検索結果
+     */
     public UserCookie findByCookieValue(String cookieValue) {
     	UserCookie ret = null;
     	TypedQuery<UserCookie> query = em.createNamedQuery("UserCookie.findByCookieValue", UserCookie.class);

@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
@@ -21,7 +20,7 @@ import net.live_on.itariya.form.ChecklistForm;
 import net.live_on.itariya.form.databean.ChecklistRow;
 import net.live_on.itariya.util.ApDateUtil;
 
-@RequestScoped
+@Stateless
 public class ChecklistLogic {
 
 	@Inject
@@ -81,7 +80,6 @@ public class ChecklistLogic {
     	form.setChecklistRowList(checklistRowList);
     }
 
-    @Transactional(rollbackOn = Exception.class)
     public void registChecklist() {
     	CheckHistory c;
 

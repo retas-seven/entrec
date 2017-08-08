@@ -33,12 +33,18 @@ public class LoginAction implements Serializable {
 	@EJB
 	LoginLogic loginLogic;
 
+	/**
+	 * 新規登録画面に遷移する
+	 */
     @Interceptors(GeneralInterceptor.class)
     public String regist() {
     	String ret = "/screen/regist?faces-redirect=true";
         return ret;
     }
 
+    /**
+     * ログイン処理
+     */
     @Interceptors(GeneralInterceptor.class)
     public String login() {
     	String ret;
@@ -47,8 +53,6 @@ public class LoginAction implements Serializable {
     	if (loginResult) {
     		ret = "/screen/check_list?faces-redirect=true";
     	} else {
-//    		ApUtil.addMessage("メールアドレスまたはパスワードが無効です。");
-//    		ret = "/screen/login?faces-redirect=true";
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "メールアドレスまたはパスワードが無効です。",  "");
             FacesContext.getCurrentInstance().addMessage(null, message);
 
@@ -59,6 +63,9 @@ public class LoginAction implements Serializable {
         return ret;
     }
 
+    /**
+     * 自動ログイン処理
+     */
     @Interceptors(GeneralInterceptor.class)
     public String autoLogin() {
     	String ret = null;

@@ -23,6 +23,9 @@ public class LogoutAction implements Serializable {
 	@EJB
 	LogoutLogic logoutLogic;
 
+	/**
+	 * ログアウト処理
+	 */
     @Interceptors(GeneralInterceptor.class)
     public String logout() {
     	logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());

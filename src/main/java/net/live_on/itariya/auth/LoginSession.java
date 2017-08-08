@@ -10,8 +10,12 @@ import lombok.Data;
 @Named
 @SessionScoped
 @Data
+/**
+ * ログインユーザのセッション情報
+ */
 public class LoginSession implements Serializable {
 	private static final long serialVersionUID = 1;
 
+	/** ユーザ情報 */
     private LoginUser loginUser;
 }

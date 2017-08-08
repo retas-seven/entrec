@@ -9,11 +9,9 @@ public class CookieUtil {
 
 	public static void setCookie(String name, String value, int expiry, HttpServletRequest request, HttpServletResponse response) {
 	    FacesContext facesContext = FacesContext.getCurrentInstance();
-
-//	    HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
 	    Cookie cookie = null;
-
 	    Cookie[] userCookies = request.getCookies();
+
 	    if (userCookies != null && userCookies.length > 0 ) {
 	        for (int i = 0; i < userCookies.length; i++) {
 	            if (userCookies[i].getName().equals(name)) {
@@ -31,8 +29,6 @@ public class CookieUtil {
 	    }
 
 	    cookie.setMaxAge(expiry);
-
-//	    HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 	    response.addCookie(cookie);
 	}
 
@@ -62,18 +58,14 @@ public class CookieUtil {
 	}
 
 	public static String deleteCookie(String name, HttpServletRequest request, HttpServletResponse response) {
-//		FacesContext facesContext = FacesContext.getCurrentInstance();
-//		HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
 		String deleteCookieValue = null;
-
 		Cookie cookie = getCookie(name, request);
+
 		if (cookie != null) {
 			deleteCookieValue = cookie.getValue();
 
-			// クッキーを有効期限切れにさせてレスポンスに設定
+			// クッキーを有効期限切れにしてレスポンスに設定
 			cookie.setMaxAge(0);
-//			facesContext = FacesContext.getCurrentInstance();
-//			HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
 			response.addCookie(cookie);
 		}
 

@@ -24,7 +24,6 @@ public class SlashDateConverter implements Converter {
     	String ret;
 
     	if (str.matches("^[0-9]{8}$")) {
-//    		ret = StringUtils.mid(str, 0, 4) + "/" + StringUtils.mid(str, 4, 2) + "/" +  StringUtils.mid(str, 6, 2);
     		ret = Integer.parseInt(StringUtils.mid(str, 4, 2)) + "/" +  Integer.parseInt(StringUtils.mid(str, 6, 2));
     	} else {
     		ret = str;

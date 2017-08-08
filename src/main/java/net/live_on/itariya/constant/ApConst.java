@@ -1,5 +1,8 @@
 package net.live_on.itariya.constant;
 
+/**
+ * entrec共通定数
+ */
 public class ApConst {
 	/** システム日付オブジェクトをリクエストに設定するためのキー */
 	public static final String REQUEST_KEY_SYSTEM_DATE = "request_key_system_date";
