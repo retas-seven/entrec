@@ -10,9 +10,16 @@ repositories {
 
 dependencies {
     compile(
-        'commons-collections:commons-collections:3.2',
-        'javax:javaee-api:7.0',
-        'org.primefaces:primefaces:6.0'
+		'commons-collections:commons-collections:3.2',
+		'javax:javaee-api:7.0',
+		'org.apache.commons:commons-lang3:3.5',
+		'commons-beanutils:commons-beanutils:1.9.3',
+		'org.apache.logging.log4j:log4j-api:2.8',
+		'org.apache.logging.log4j:log4j-core:2.8',
+		'org.ocpsoft.rewrite:rewrite-servlet:3.0.0.Alpha6',
+		'org.ocpsoft.rewrite:rewrite-config-prettyfaces:3.0.0.Alpha6',
+		'org.primefaces:primefaces:6.0',
+		'org.primefaces.extensions:primefaces-extensions:6.0.0'
     )
 
     testCompile 'junit:junit:4.+'
