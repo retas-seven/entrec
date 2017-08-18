@@ -5,6 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
@@ -15,9 +16,8 @@
     </h:head>
 
     <h:body styleClass="body_general">
-		<header class="top_bar">
-			<p:graphicImage library="img" name="entrec.png" style="height: 40px; width:160px;"/>
-        </header>
+
+		<ui:include src="template/top.xhtml" />
 
         <div class="login_box">
             <form jsf:id="fm">
@@ -42,17 +42,7 @@
             </form>
         </div>
 
-	    <footer id="footer">
-			<div class="footer_link">
-				<a class="footer_linkstr" href="/entrec/doc/rule.html" target="_blank">利用規約</a>
-				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/privacy_policy.html" target="_blank">プライバシーポリシー</a>
-				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/contact.html" target="_blank">お問い合わせ</a>
-			</div>
-			<div class="footer_copyright">
-				© OSAWA APPS 2017
-			</div>
-		</footer>
+	    <ui:include src="template/footer.xhtml" />
+
     </h:body>
 </html>
