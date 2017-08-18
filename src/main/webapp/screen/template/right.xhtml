@@ -1,33 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions">
 
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    </h:head>
+	<ui:composition>
+       	<p:calendar id="calendar_date" mode="inline" width="200" value="#{checklistAction.checklistForm.calendarDate}" locale="ja" >
+			<p:ajax event="dateSelect" execute="@form" listener="#{checklistAction.changeMonth()}" update="tbl" />
+       	</p:calendar>
 
-    <body>
-        <ui:composition>
-        	<p:calendar id="calendar_date" mode="inline" width="200" value="#{checklistAction.checklistForm.calendarDate}" locale="ja" >
-				<p:ajax event="dateSelect" execute="@form" listener="#{checklistAction.changeMonth()}" update="tbl" />
-        	</p:calendar>
+      	<hr style="margin: 30px 0px 30px 0px;"/>
 
-       		<hr style="margin: 30px 0px 30px 0px;"/>
-			<p:commandButton id="registBtn" update="msgs" styleClass="regist_button" actionListener="#{checklistAction.regist()}" value="保存"
-					onstart="PF('block_ui_widget').block()" oncomplete="PF('block_ui_widget').unblock()" />
+		<p:commandButton id="registBtn" update="msgs" styleClass="regist_button" actionListener="#{checklistAction.regist()}" value="保存"
+				onstart="PF('block_ui_widget').block()" oncomplete="PF('block_ui_widget').unblock()" />
 
-			<pe:blockUI widgetVar="block_ui_widget">
-			    <h:panelGrid columns="2">
-			        <h:graphicImage library="img" name="processing.gif"
-			                        style="margin-right: 12px; vertical-align: middle;"/>
-			        <h:outputText value="処理中..." style="white-space: nowrap;"/>
-			    </h:panelGrid>
-			</pe:blockUI>
-
-        </ui:composition>
-    </body>
+		<pe:blockUI widgetVar="block_ui_widget">
+		    <h:panelGrid columns="2">
+		        <h:graphicImage library="img" name="processing.gif"
+		                        style="margin-right: 12px; vertical-align: middle;"/>
+		        <h:outputText value="処理中..." style="white-space: nowrap;"/>
+		    </h:panelGrid>
+		</pe:blockUI>
+	</ui:composition>
 </html>

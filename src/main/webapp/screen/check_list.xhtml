@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -9,87 +7,78 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:pe="http://primefaces.org/ui/extensions">
 
-    <h:head>
-        <meta charset="UTF-8" />
-        <h:outputScript name="jsf.js" library="javax.faces"/>
-        <title>Office Check</title>
-    </h:head>
+	<ui:composition template="/screen/template/checklist_template.xhtml">
+		<ui:define name="content">
+	        <f:metadata>
+				<f:viewAction action="#{checklistAction.init()}" onPostback="false" />
+			</f:metadata>
 
-    <h:body>
-        <h:outputStylesheet name="/css/general.css" />
-        <ui:composition template="/screen/template/template.xhtml">
-	        <ui:define name="content">
-		        <f:metadata>
-					<f:viewAction action="#{checklistAction.init()}" onPostback="false" />
-				</f:metadata>
+			<p:growl id="msgs" showDetail="true"/>
+		    <p:dataTable style="width:1100px;" class="center_table" id="tbl" var="row" value="#{checklistAction.checklistForm.checklistRowList}" editable="true" editMode="cell" >
+		    	<f:facet name="header">
+		            入退室記録
+		        </f:facet>
 
-				<p:growl id="msgs" showDetail="true"/>
-			    <p:dataTable style="width:1100px;" class="center_table" id="tbl" var="row" value="#{checklistAction.checklistForm.checklistRowList}" editable="true" editMode="cell" >
-			    	<f:facet name="header">
-			            入退室記録
-			        </f:facet>
+		       	<p:column headerText="日付" style="width:7%;" class="center header_color cell_color" >
+		            <h:outputText value="#{row.checkHistory.checkHistoryPK.checkMonth}/#{row.checkHistory.checkHistoryPK.checkDay}" />
+		        </p:column>
 
-			       	<p:column headerText="日付" style="width:7%;" class="center header_color cell_color" >
-			            <h:outputText value="#{row.checkHistory.checkHistoryPK.checkMonth}/#{row.checkHistory.checkHistoryPK.checkDay}" />
-			        </p:column>
+		        <p:column headerText="曜日" style="width:6%;"  class="center header_color cell_color">
+					<h:outputText value="#{row.week}" converter="WeekConverter"/>
+				</p:column>
 
-			        <p:column headerText="曜日" style="width:6%;"  class="center header_color cell_color">
-						<h:outputText value="#{row.week}" converter="WeekConverter"/>
-					</p:column>
+		        <p:column headerText="入室者名" style="width:13%;" class="center header_color cell_color">
+					<p:cellEditor>
+		            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryUserId}" /></f:facet>
+		                <f:facet name="input"><p:inputText value="#{row.checkHistory.entryUserId}" style="width:94%" /></f:facet>
+		            </p:cellEditor>
+				</p:column>
 
-			        <p:column headerText="入室者名" style="width:13%;" class="center header_color cell_color">
-						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryUserId}" /></f:facet>
-			                <f:facet name="input"><p:inputText value="#{row.checkHistory.entryUserId}" style="width:94%" /></f:facet>
-			            </p:cellEditor>
-					</p:column>
+				<p:column headerText="退室者名" style="width:13%;" class="center header_color cell_color">
+					<p:cellEditor>
+		            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitUserId}" /></f:facet>
+		                <f:facet name="input"><p:inputText value="#{row.checkHistory.exitUserId}" style="width:94%" /></f:facet>
+		            </p:cellEditor>
+				</p:column>
 
-					<p:column headerText="退室者名" style="width:13%;" class="center header_color cell_color">
-						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitUserId}" /></f:facet>
-			                <f:facet name="input"><p:inputText value="#{row.checkHistory.exitUserId}" style="width:94%" /></f:facet>
-			            </p:cellEditor>
-					</p:column>
+		        <p:column headerText="入室時刻" style="width:13%;" class="center header_color cell_color">
+					<p:cellEditor>
+		            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
+		                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.entryTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
+		            </p:cellEditor>
+				</p:column>
 
-			        <p:column headerText="入室時刻" style="width:13%;" class="center header_color cell_color">
-						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.entryTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
-			                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.entryTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
-			            </p:cellEditor>
-					</p:column>
+		        <p:column headerText="退室時刻" style="width:13%;" class="center header_color cell_color">
+					<p:cellEditor>
+		            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
+		                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.exitTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
+		            </p:cellEditor>
+				</p:column>
 
-			        <p:column headerText="退室時刻" style="width:13%;" class="center header_color cell_color">
-						<p:cellEditor>
-			            	<f:facet name="output"><h:outputText value="#{row.checkHistory.exitTime}" ><f:convertDateTime pattern="HH:mm" timeZone="JST" /></h:outputText></f:facet>
-			                <f:facet name="input"><pe:timePicker value="#{row.checkHistory.exitTime}" mode="popup" widgetVar="popupTimeWidget" label="Popup time picker" showNowButton="true" showCloseButton="true" /></f:facet>
-			            </p:cellEditor>
-					</p:column>
+		        <p:column headerText="PC電源" style="padding:4px 0 0 0; width:7%;" class="center header_color cell_color">
+		        	<h:selectBooleanCheckbox value="#{row.checkHistory.pcPower}" />
+				</p:column>
 
-			        <p:column headerText="PC電源" style="padding:4px 0 0 0; width:7%;" class="center header_color cell_color">
-			        	<h:selectBooleanCheckbox value="#{row.checkHistory.pcPower}" />
-					</p:column>
+		        <p:column headerText="クリアデスク" style="width:7%;" class="center header_color cell_color">
+		            <h:selectBooleanCheckbox value="#{row.checkHistory.clearDesk}" />
+				</p:column>
 
-			        <p:column headerText="クリアデスク" style="width:7%;" class="center header_color cell_color">
-			            <h:selectBooleanCheckbox value="#{row.checkHistory.clearDesk}" />
-					</p:column>
+		        <p:column headerText="保管庫施錠" style="width:7%;" class="center header_color cell_color">
+		            <h:selectBooleanCheckbox value="#{row.checkHistory.storageLock}" />
+				</p:column>
 
-			        <p:column headerText="保管庫施錠" style="width:7%;" class="center header_color cell_color">
-			            <h:selectBooleanCheckbox value="#{row.checkHistory.storageLock}" />
-					</p:column>
+		        <p:column headerText="消灯" style="width:7%;" class="center header_color cell_color">
+		            <h:selectBooleanCheckbox value="#{row.checkHistory.lightOff}" />
+				</p:column>
 
-			        <p:column headerText="消灯" style="width:7%;" class="center header_color cell_color">
-			            <h:selectBooleanCheckbox value="#{row.checkHistory.lightOff}" />
-					</p:column>
+		        <p:column headerText="戸・窓の施錠" style="width:7%;" class="center header_color cell_color">
+		            <h:selectBooleanCheckbox value="#{row.checkHistory.doorWindowLock}" />
+				</p:column>
 
-			        <p:column headerText="戸・窓の施錠" style="width:7%;" class="center header_color cell_color">
-			            <h:selectBooleanCheckbox value="#{row.checkHistory.doorWindowLock}" />
-					</p:column>
-
-					<f:facet name="footer">
-						&#160;
-			        </f:facet>
-				</p:dataTable>
-	        </ui:define>
-        </ui:composition>
-    </h:body>
+				<f:facet name="footer">
+					&#160;
+		        </f:facet>
+			</p:dataTable>
+		</ui:define>
+	</ui:composition>
 </html>

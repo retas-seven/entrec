@@ -11,12 +11,14 @@
         <h:outputStylesheet name="/css/layout.css"/>
         <h:outputScript library="js" name="calendar_str_jp.js" />
         <h:outputScript library="js" name="check_list.js" />
-        <title>入退館記録</title>
+        <title>入退室記録</title>
     </h:head>
 
     <h:body styleClass="body_general">
         <h:outputStylesheet name="/css/general.css" />
         <h:form id="fm" prependId="false">
+
+        	<!-- ヘッダーをインクルード -->
        		<div id="top">
 	            <ui:insert name="top">
 	            	<ui:include src="top_logout.xhtml" />
@@ -24,28 +26,22 @@
 	        </div>
 
 	    	<div id="global">
+	    		<!-- 右表示部をインクルード -->
 	            <div id="right">
 	                <ui:insert name="right">
 	                	<ui:include src="right.xhtml" />
 	                </ui:insert>
 	            </div>
+
+				<!-- 記録表をインクルード -->
 	            <div id="left">
 	                <ui:insert name="content"></ui:insert>
 	            </div>
 		    </div>
+
 		</h:form>
 
-	    <div id="footer" style="margin-top:85px; height: 80px;">
-			<div class="footer_link">
-				<a class="footer_linkstr" href="/entrec/doc/rule.html" target="_blank">利用規約</a>
-				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/privacy_policy.html" target="_blank">プライバシーポリシー</a>
-				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/contact.html" target="_blank">お問い合わせ</a>
-			</div>
-			<div class="footer_copyright">
-				© OSAWA APPS 2017
-			</div>
-			</div>
+		<!-- フッターをインクルード -->
+		<ui:include src="footer.xhtml" />
     </h:body>
 </html>
