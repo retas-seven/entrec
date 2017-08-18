@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+        'commons-collections:commons-collections:3.2',
+        'javax:javaee-api:7.0',
+        'org.primefaces:primefaces:6.0'
+    )
+
+    testCompile 'junit:junit:4.+'
+}
