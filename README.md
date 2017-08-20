@@ -24,15 +24,19 @@
 
 ## 開発環境
 
-* JDK1.8.0_74
+* JDK1.8
 
 * JavaEE7, JSF2.2
 
-* Eclipse Neon 4.6.2
+* Eclipse
 
-* MySQL 5.7.14
+* MySQL
 
-* payara 4.1.1.164
+* payara
+
+## 開発環境構築手順
+
+* [作成中（Excelファイル）](readme/開発環境構築手順.xlsx "作成中（Excelファイル）")
 
 ## 対応ブラウザ
 
