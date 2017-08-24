@@ -50,7 +50,8 @@ public final class SystemDateServletFilter implements Filter{
 //			RequestDispatcher rd = request.getRequestDispatcher("/faces/screen/login.xhtml");
 //			rd.forward(request, response);
 //			((HttpServletResponse) response).sendRedirect("/entrec/faces/screen/login.xhtml");
-			((HttpServletResponse) response).sendRedirect("/entrec/login");
+//			((HttpServletResponse) response).sendRedirect("/entrec/login");
+			((HttpServletResponse) response).sendRedirect(ApConst.SESSION_CHECK_RESULT_LOGIN_PAGE);
 		} else {
 			// 後続の業務処理で使用するシステム日付を取得する
 			SystemDate systemDate = systemDateDao.getSystemDate();
@@ -75,18 +76,28 @@ public final class SystemDateServletFilter implements Filter{
 	        Log.out.info("pathInfo:" + pathInfo);
 
             // URLがJSF本来のものである場合
+	        /*
             if ("/faces".equals(servletPath) && pathInfo != null && pathInfo.matches("^/screen/.+\\.xhtml$")) {
             	if (!StringUtils.equalsAny(pathInfo, "/screen/login.xhtml", "/screen/regist.xhtml")) {
                 	execSessionCheck = true;
             	}
             }
+            */
+
+            if (servletPath.matches("^/screen/.+\\.xhtml$")) {
+            	if (!StringUtils.equalsAny(servletPath, "/screen/login.xhtml", "/screen/regist.xhtml")) {
+                	execSessionCheck = true;
+            	}
+            }
 
             // URLがPrettyFacesのものである場合
+            /*
             if (!"/faces".equals(servletPath)) {
             	if (!StringUtils.equalsAny(servletPath, "/login", "/regist", "/doc/contact.html", "/doc/contact.html", "/doc/privacy_policy.html", "/doc/rule.html")) {
                 	execSessionCheck = true;
             	}
             }
+            */
 
             // セッションチェック実行
             if (execSessionCheck) {

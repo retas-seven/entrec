@@ -11,16 +11,22 @@ public class ApConst {
 	public static final String FLASH_KEY_MESSAGE = "flash_key_message";
 
 	/** 初期ページファイル名 */
-	public static final String LOGIN_PAGE = "/screen/login.xhtml";
+	public static final String LOGIN_PAGE = "/screen/login.xhtml?faces-redirect=true";
+
+	/** 初期ページファイル名 */
+	public static final String SESSION_CHECK_RESULT_LOGIN_PAGE = "/entrec/screen/login.xhtml";
 
 	/** アプリケーションエラーページファイル名 */
-	public static final String APP_ERROR_PAGE = "/screen/app_error.xhtml";
+	public static final String APP_ERROR_PAGE = "/screen/app_error.xhtml?faces-redirect=true";
 
 	/** 新規登録ページファイル名 */
-	public static final String REGIST_PAGE = "/screen/regist.xhtml";
+	public static final String REGIST_PAGE = "/screen/regist.xhtml?faces-redirect=true";
+
+	/** チェックリストページファイル名 */
+	public static final String CHECKLIST_PAGE = "/screen/check_list.xhtml?faces-redirect=true";
 
 	/** 無効ページファイル名 */
-	public static final String INVALID_PAGE = "/doc/invalid.html";
+	public static final String INVALID_PAGE = "/doc/invalid.html?faces-redirect=true";
 
 	/** 自動ログイン用クッキー名 */
 	public static final String AUTO_LOGIN_COOKIE_NAME = "enter_record";

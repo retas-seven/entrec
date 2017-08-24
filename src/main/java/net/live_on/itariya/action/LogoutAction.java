@@ -7,6 +7,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.interceptor.Interceptors;
 
+import net.live_on.itariya.constant.ApConst;
 import net.live_on.itariya.interseptor.GeneralInterceptor;
 import net.live_on.itariya.logic.LogoutLogic;
 import net.live_on.itariya.util.ApUtil;
@@ -29,7 +30,7 @@ public class LogoutAction implements Serializable {
     @Interceptors(GeneralInterceptor.class)
     public String logout() {
     	logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
-    	String ret = "/screen/login?faces-redirect=true";
+    	String ret = ApConst.LOGIN_PAGE;;
     	return ret;
     }
 }

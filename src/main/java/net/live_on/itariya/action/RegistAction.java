@@ -11,6 +11,7 @@ import javax.inject.Named;
 import javax.interceptor.Interceptors;
 
 import lombok.Data;
+import net.live_on.itariya.constant.ApConst;
 import net.live_on.itariya.form.RegistForm;
 import net.live_on.itariya.interseptor.GeneralInterceptor;
 import net.live_on.itariya.logic.RegistLogic;
@@ -43,7 +44,7 @@ public class RegistAction implements Serializable {
     	}
 
     	registLogic.registNewUser();
-    	String ret = "/screen/login?faces-redirect=true";
+    	String ret = ApConst.LOGIN_PAGE;;
         return ret;
     }
 
@@ -68,7 +69,7 @@ public class RegistAction implements Serializable {
      */
     @Interceptors(GeneralInterceptor.class)
     public String back() {
-    	String ret = "/screen/login?faces-redirect=true";
+    	String ret = ApConst.LOGIN_PAGE;
         return ret;
     }
 }
