@@ -20,7 +20,7 @@ import net.live_on.itariya.util.ApUtil;
 public class LogoutAction implements Serializable {
 	private static final long serialVersionUID = 1;
 
-	/** ログイン処理ロジック */
+	/** ログアウト処理ロジック */
 	@EJB
 	LogoutLogic logoutLogic;
 
