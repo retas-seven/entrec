@@ -53,4 +53,24 @@ public class UserDao extends AbstractFacade<User> {
     	em.detach(ret);
         return ret;
     }
+
+    /**
+     * 指定されたメールアドレス登録済みであるか確認する
+     * @param mail メールアドレス
+     * @return 確認結果
+     */
+    public boolean isRegisteredMail(String mail) {
+    	TypedQuery<Long> query = em.createQuery(
+    			"select count(u) from User u where u.mail = :mail", Long.class);
+    	query.setParameter("mail", mail);
+
+    	Long count = query.getSingleResult();
+
+    	if(count == 0) {
+    		// 登録されていない場合
+    		return false;
+    	}
+
+    	return true;
+    }
 }

@@ -37,4 +37,9 @@ public class RegistLogic {
 
 		UserDao.create(user);
 	}
+
+	public boolean isRegisteredMail() {
+		boolean ret = UserDao.isRegisteredMail(form.getMail());
+		return ret;
+	}
 }

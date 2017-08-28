@@ -53,12 +53,20 @@ public class RegistAction implements Serializable {
      * @return チェック結果
      */
     private boolean inputCheck() {
-    	boolean ret = false;
-    	if (form.getPassword().equals(form.getCofirmPassword())) {
-    		ret = true;
-    	} else {
+    	boolean ret = true;
+
+    	// パスワードの一致チェック
+    	if (!form.getPassword().equals(form.getCofirmPassword())) {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "パスワードと確認用パスワードが不一致です。",  "");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            ret = false;
+    	}
+
+    	// メールアドレス登録済チェック
+    	if (registLogic.isRegisteredMail()) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "既に登録されているメールアドレスです。",  "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+    		ret = false;
     	}
 
     	return ret;
