@@ -63,6 +63,7 @@ public class CookieUtil {
 
 		if (cookie != null) {
 			deleteCookieValue = cookie.getValue();
+			cookie.setPath(request.getContextPath());
 
 			// クッキーを有効期限切れにしてレスポンスに設定
 			cookie.setMaxAge(0);
