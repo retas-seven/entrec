@@ -62,6 +62,7 @@ public class ChecklistAction implements Serializable {
     @Interceptors(GeneralInterceptor.class)
     public void regist() {
     	checklistLogic.registChecklist();
+        checklistLogic.initChecklist(checklistForm.getCalendarDate());
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }

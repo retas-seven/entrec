@@ -109,9 +109,6 @@ public class ChecklistLogic {
 			    		ch.setUpdateDate(ApDateUtil.getSystemDate());
 			    		ch.setUpdateUserId(loginSession.getLoginUser().getUserId());
 			    		checkHistoryDao.create(ch);
-
-			    		row.setUpdateRow(true);
-			    		row.setNewRow(false);
 		    		}
 
 	    		} else if (row.isUpdateRow()) {
