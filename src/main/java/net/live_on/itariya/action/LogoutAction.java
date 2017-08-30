@@ -30,7 +30,7 @@ public class LogoutAction implements Serializable {
     @Interceptors(GeneralInterceptor.class)
     public String logout() {
     	logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
-    	String ret = ApConst.LOGIN_PAGE;;
+    	String ret = ApConst.LOGIN_PAGE;
     	return ret;
     }
 }
