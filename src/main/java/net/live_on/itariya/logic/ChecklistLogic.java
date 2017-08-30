@@ -32,47 +32,58 @@ public class ChecklistLogic {
 	@Inject
 	CheckHistoryDao checkHistoryDao;
 
+	/**
+	 * チェックリスト画面の一覧情報を作成する
+	 * @param targetDate 作成対象の年月
+	 */
 	public void initChecklist(Date targetDate) {
 		Calendar targetCalendar = ApDateUtil.getCalendar(targetDate);
 		searchCheckHistory(targetCalendar.get(Calendar.YEAR), targetCalendar.get(Calendar.MONTH) + 1);
 	}
 
+	/**
+	 *チェックリスト画面の一覧の各行の情報を作成する
+	 * @param year 作成対象年
+	 * @param month 作成対象月
+	 */
     public void searchCheckHistory(int year, int month) {
     	List<ChecklistRow> checklistRowList = new ArrayList<>();
-    	List<CheckHistory> checkHistoryList = checkHistoryDao.searchCheckHistory(year, month);
     	Calendar targetYM = ApDateUtil.getCalendar(year, month);
-
-    	int lastDay = targetYM.getActualMaximum(Calendar.DATE);
     	Map<Short, ChecklistRow> tmpChecklistRowMap = new HashMap<>();
 
-    	for (CheckHistory c : checkHistoryList) {
+    	// 指定された年月のチェック履歴リストをDBから取得する
+    	List<CheckHistory> checkHistoryList = checkHistoryDao.searchCheckHistory(year, month);
+
+    	// DBに存在した日付の行情報を保持する
+    	for (CheckHistory ch : checkHistoryList) {
     		ChecklistRow row = new ChecklistRow();
     		row.setUpdateRow(true);
-    		row.setCheckHistory(c);
-    		tmpChecklistRowMap.put(c.getCheckHistoryPK().getCheckDay(), row);
+    		row.setCheckHistory(ch);
+    		tmpChecklistRowMap.put(ch.getCheckHistoryPK().getCheckDay(), row);
     	}
 
-    	for (short day = 1; day <= lastDay; day++) {
+    	// DBに存在しなかった日は新規に行情報を作成する
+    	for (short day = 1; day <= targetYM.getActualMaximum(Calendar.DATE); day++) {
     		if (tmpChecklistRowMap.containsKey(day)) {
     			checklistRowList.add(tmpChecklistRowMap.get(day));
     			continue;
     		}
 
     		ChecklistRow row = new ChecklistRow();
-    		CheckHistory c = new CheckHistory();
+    		CheckHistory ch = new CheckHistory();
     		CheckHistoryPK pk = new CheckHistoryPK();
     		pk.setCheckYear((short) targetYM.get(Calendar.YEAR));
     		pk.setCheckMonth((short) (targetYM.get(Calendar.MONTH) + 1));
     		pk.setCheckDay(day);
     		pk.setChackDateSeq("0");
-    		c.setCheckHistoryPK(pk);
+    		ch.setCheckHistoryPK(pk);
     		row.setNewRow(true);
-    		row.setCheckHistory(c);
+    		row.setCheckHistory(ch);
     		checklistRowList.add(row);
     	}
 
+		// 各行の曜日を設定
     	for (ChecklistRow row : checklistRowList) {
-    		// 各行の曜日を設定
     		targetYM.set(Calendar.DATE, row.getCheckHistory().getCheckHistoryPK().getCheckDay());
     		row.setWeek(targetYM.get(Calendar.DAY_OF_WEEK));
     	}
@@ -80,24 +91,34 @@ public class ChecklistLogic {
     	form.setChecklistRowList(checklistRowList);
     }
 
+    /**
+     * チェックリスト画面の一覧情報を保存する
+     */
     public void registChecklist() {
-    	CheckHistory c;
+    	CheckHistory ch;
 
     	try {
 	    	for (ChecklistRow row : form.getChecklistRowList()) {
 	    		if (row.isNewRow()) {
-		    		c = row.getCheckHistory();
-		    		c.setRegistDate(ApDateUtil.getSystemDate());
-		    		c.setRegistUserId(loginSession.getLoginUser().getUserId());
-		    		c.setUpdateDate(ApDateUtil.getSystemDate());
-		    		c.setUpdateUserId(loginSession.getLoginUser().getUserId());
-		    		checkHistoryDao.create(c);
+		    		ch = row.getCheckHistory();
+
+		    		// 新規行の場合、何らかの入力がされている場合のみ登録する
+		    		if (ChecklistRow.isInput(ch)) {
+			    		ch.setRegistDate(ApDateUtil.getSystemDate());
+			    		ch.setRegistUserId(loginSession.getLoginUser().getUserId());
+			    		ch.setUpdateDate(ApDateUtil.getSystemDate());
+			    		ch.setUpdateUserId(loginSession.getLoginUser().getUserId());
+			    		checkHistoryDao.create(ch);
+
+			    		row.setUpdateRow(true);
+			    		row.setNewRow(false);
+		    		}
 
 	    		} else if (row.isUpdateRow()) {
-		    		c = row.getCheckHistory();
-		    		c.setUpdateDate(ApDateUtil.getSystemDate());
-		    		c.setUpdateUserId(loginSession.getLoginUser().getUserId());
-		    		checkHistoryDao.edit(c);
+		    		ch = row.getCheckHistory();
+		    		ch.setUpdateDate(ApDateUtil.getSystemDate());
+		    		ch.setUpdateUserId(loginSession.getLoginUser().getUserId());
+		    		checkHistoryDao.edit(ch);
 	    		}
 	    	}
     	} catch (ConstraintViolationException e) {
@@ -108,7 +129,5 @@ public class ChecklistLogic {
     		System.out.println("------------------");
     		throw e;
     	}
-
-    	System.out.println("end");
     }
  }
