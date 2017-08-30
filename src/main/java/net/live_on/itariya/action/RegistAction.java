@@ -44,7 +44,7 @@ public class RegistAction implements Serializable {
     	}
 
     	registLogic.registNewUser();
-    	String ret = ApConst.LOGIN_PAGE;;
+    	String ret = ApConst.LOGIN_PAGE;
         return ret;
     }
 
