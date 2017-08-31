@@ -64,7 +64,7 @@ public class ChecklistAction implements Serializable {
     	checklistLogic.registChecklist();
 
     	// 保存後に再検索をしてVersion情報などを最新化する
-        checklistLogic.initChecklist(checklistForm.getCalendarDate());
+        init();
 
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
         FacesContext.getCurrentInstance().addMessage(null, message);
