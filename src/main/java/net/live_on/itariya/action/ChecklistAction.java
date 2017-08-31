@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
+import javax.persistence.OptimisticLockException;
 
 import lombok.Data;
 import net.live_on.itariya.form.ChecklistForm;
@@ -61,12 +63,22 @@ public class ChecklistAction implements Serializable {
      */
     @Interceptors(GeneralInterceptor.class)
     public void regist() {
-    	checklistLogic.registChecklist();
+    	try {
+    		checklistLogic.registChecklist();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+    	} catch (EJBException e) {
+    		if (e.getCausedByException() instanceof OptimisticLockException) {
+	            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "",  "保存失敗。他ユーザにより更新済です。");
+	            FacesContext.getCurrentInstance().addMessage(null, message);
+
+    		} else {
+	            throw e;
+    		}
+    	}
 
     	// 保存後に再検索をしてVersion情報などを最新化する
         init();
-
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "",  "保存しました。");
-        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }
