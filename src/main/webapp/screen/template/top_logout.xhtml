@@ -5,14 +5,16 @@
       xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition>
-       	<div class="align_left">
-			<p:graphicImage value="/resources/img/entrec.png" style="height: 40px; width:160px;"/>
-		</div>
+		<header class="top_bar">
+	       	<div class="align_left">
+				<p:graphicImage value="/resources/img/entrec.png" style="height: 40px; width:175px;"/>
+			</div>
 
-		<div class="align_right">
-			<p:commandLink action="#{logoutAction.logout()}">
-			    <p:graphicImage value="/resources/img/door.png" title="ログアウト" style="height: 40px; width:40px;" />
-			</p:commandLink>
-		</div>
+			<div class="align_right">
+				<p:commandLink action="#{logoutAction.logout()}">
+				    <p:graphicImage value="/resources/img/door.png" title="ログアウト" style="height: 40px; width:40px;" />
+				</p:commandLink>
+			</div>
+		</header>
 	</ui:composition>
 </html>

@@ -47,6 +47,7 @@ html {
     padding: 0px;
     margin: 0px 0px 0px 0px;
     height: 40px;
+    box-shadow: 5px 0px 5px #999;
 }
 
 .ui-datepicker {
@@ -140,6 +141,7 @@ input[type="checkbox"]{
     height: 25px;
     /* background: url(../img/check_off.png); */
     background-size: contain;
+    outline: none;
 }
 
 input[type="checkbox"]:checked:before {
@@ -153,6 +155,7 @@ input[type="checkbox"]:checked:before {
     /* background: url(../img/check_on6.png); */
     background-image: url(/entrec/resources/img/check_on6.png);
     background-size: 25px 25px;
+    outline: none;
 }
 
 input[type=radio] {
