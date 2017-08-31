@@ -67,6 +67,7 @@ html {
 	border-color: rgb(183, 131, 70);
 	/* background-repeat: no-repeat; */
 	color: rgb(153, 101, 20);
+    outline: none;
 }
 
 .logout_button {
@@ -161,17 +162,6 @@ input[type="checkbox"]:checked:before {
 input[type=radio] {
 	position: absolute;
 	z-index: -1;
-}
-
-input[type=radio] + label {
-	display: block;
-	min-height: 16px;
-	padding: 7px 0 7px 40px;
-	background: transparent url(../img/off.png) no-repeat scroll left center;
-}
-
-input[type=radio]:checked + label {
-	background-image: url(../img/on.png);
 }
 
 #footer {
