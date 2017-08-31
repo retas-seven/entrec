@@ -10,6 +10,10 @@
 
 ## 画面
 
+* 記録表
+
+![記録](readme/record_2.png)
+
 * ログイン
 
 ![ログイン](readme/login_2.png)
@@ -17,10 +21,6 @@
 * 新規ユーザ登録
 
 ![新規ユーザ登録](readme/regist_2.png)
-
-* 記録表
-
-![記録](readme/record_2.png)
 
 ## 開発環境
 
