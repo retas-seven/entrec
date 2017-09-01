@@ -3,14 +3,18 @@ package net.live_on.itariya.util;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
+import javax.ejb.EJBException;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityExistsException;
+import javax.persistence.OptimisticLockException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.BeanUtils;
 
 import net.live_on.itariya.constant.ApConst;
+import net.live_on.itariya.constant.EjbExceptionCause;
 import net.live_on.itariya.exception.SystemException;
 
 public class ApUtil {
@@ -68,4 +72,20 @@ public class ApUtil {
 		return ret;
 	}
 
+
+	/**
+	 * EJBExceptionの発生原因を検証する
+	 */
+	public static EjbExceptionCause parseEjbException(EJBException e) {
+		EjbExceptionCause ret = EjbExceptionCause.OTHER;
+
+		if (e.getCausedByException() instanceof OptimisticLockException) {
+			ret = EjbExceptionCause.UPDATED;
+
+		} else if (e.getCausedByException() instanceof EntityExistsException) {
+			ret = EjbExceptionCause.UNIQUE_CONSTRAINT;
+		}
+
+		return ret;
+	}
 }

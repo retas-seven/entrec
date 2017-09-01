@@ -9,13 +9,14 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
-import javax.persistence.OptimisticLockException;
 
 import lombok.Data;
+import net.live_on.itariya.constant.EjbExceptionCause;
 import net.live_on.itariya.form.ChecklistForm;
 import net.live_on.itariya.interseptor.GeneralInterceptor;
 import net.live_on.itariya.logic.ChecklistLogic;
 import net.live_on.itariya.util.ApDateUtil;
+import net.live_on.itariya.util.ApUtil;
 
 /**
  * チェックリスト画面ManagedBean
@@ -69,9 +70,19 @@ public class ChecklistAction implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, message);
 
     	} catch (EJBException e) {
-    		if (e.getCausedByException() instanceof OptimisticLockException) {
+    		EjbExceptionCause cause = ApUtil.parseEjbException(e);
+
+    		if (EjbExceptionCause.UPDATED == cause) {
 	            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "",  "保存失敗。他ユーザにより更新済です。");
 	            FacesContext.getCurrentInstance().addMessage(null, message);
+	            FacesMessage message2 = new FacesMessage(FacesMessage.SEVERITY_WARN, "",  "再入力後、保存してください。");
+	            FacesContext.getCurrentInstance().addMessage(null, message2);
+
+    		} else if (EjbExceptionCause.UNIQUE_CONSTRAINT == cause) {
+	            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "",  "保存失敗。他ユーザにより登録済です。");
+	            FacesContext.getCurrentInstance().addMessage(null, message);
+	            FacesMessage message2 = new FacesMessage(FacesMessage.SEVERITY_WARN, "",  "再入力後、保存してください。");
+	            FacesContext.getCurrentInstance().addMessage(null, message2);
 
     		} else {
 	            throw e;
@@ -81,4 +92,6 @@ public class ChecklistAction implements Serializable {
     	// 保存後に再検索をしてVersion情報などを最新化する
         init();
     }
+
+
 }
