@@ -15,7 +15,8 @@ public class RegistForm implements Serializable {
 	private static final long serialVersionUID = 1;
     /** メールアドレス */
     @NameNotEmpty(name = "メールアドレス")
-    @Pattern(regexp = "^([\"*+!.&#$|\\'\\\\%\\/0-9a-z^_`{}=?~:-]*)@(([0-9a-z-]+\\.)+[0-9a-z]{2,})$", message = "{pattern.email}")
+    //@Pattern(regexp = "^([\"*+!.&#$|\\'\\\\%\\/0-9a-z^_`{}=?~:-]*)@(([0-9a-z-]+\\.)+[0-9a-z]{2,})$", message = "{pattern.email}")
+    @Pattern(regexp = "^$|^([\"*+!.&#$|\\'\\\\%\\/0-9a-z^_`{}=?~:-]*)@(([0-9a-z-]+\\.)+[0-9a-z]{2,})$", message = "{pattern.email}")
     private String mail;
 
     /** パスワード */
