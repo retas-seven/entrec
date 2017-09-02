@@ -21,5 +21,17 @@
 		        <h:outputText value="処理中..." style="white-space: nowrap;"/>
 		    </h:panelGrid>
 		</pe:blockUI>
+
+	    <p:ajaxExceptionHandler type="java.lang.Exception"
+	                            update="exceptionDialog"
+	                            onexception="PF('exceptionDialog').show();" />
+
+	    <p:dialog id="exceptionDialog" header="エラー通知" widgetVar="exceptionDialog" height="155px" modal="true" closable="false">
+			<h:outputText value="システム内部でエラーが発生しました。"/><br />
+			<h:outputText value="「閉じる」ボタンをクリックするとTOP画面へ戻ります。"/><br />
+			<hr style="margin: 30px 0px 15px 0px;"/>
+			<p:commandButton value="閉じる" action="#{logoutAction.logout()}" />
+	    </p:dialog>
+
 	</ui:composition>
 </html>

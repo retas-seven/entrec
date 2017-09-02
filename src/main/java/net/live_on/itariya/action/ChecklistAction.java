@@ -92,6 +92,4 @@ public class ChecklistAction implements Serializable {
     	// 保存後に再検索をしてVersion情報などを最新化する
         init();
     }
-
-
 }
