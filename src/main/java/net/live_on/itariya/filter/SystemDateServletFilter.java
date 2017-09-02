@@ -39,7 +39,11 @@ public final class SystemDateServletFilter implements Filter{
 	LoginSession loginSession;
 
     public void init(FilterConfig config) throws ServletException {}
+	public void destroy() {}
 
+    /**
+     * entrec標準のフィルタ処理
+     */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
 		Log.out.info("SystemDateServletFilter#doFilter() start");
 
@@ -47,25 +51,19 @@ public final class SystemDateServletFilter implements Filter{
 		boolean sessionCheckResult = sessionCheck(request, response);
 
 		if (!sessionCheckResult) {
-//			RequestDispatcher rd = request.getRequestDispatcher("/faces/screen/login.xhtml");
-//			rd.forward(request, response);
-//			((HttpServletResponse) response).sendRedirect("/entrec/faces/screen/login.xhtml");
-//			((HttpServletResponse) response).sendRedirect("/entrec/login");
+			// セッション情報がない場合（＝未ログインの場合）はログイン画面へ遷移する
 			((HttpServletResponse) response).sendRedirect(ApConst.SESSION_CHECK_RESULT_LOGIN_PAGE);
-		} else {
-			// 後続の業務処理で使用するシステム日付を取得する
-			SystemDate systemDate = systemDateDao.getSystemDate();
-			request.setAttribute(ApConst.REQUEST_KEY_SYSTEM_DATE, systemDate);
-			Log.out.info("システム日付：" + ApDateUtil.formatDateTime(systemDate.getSystemDate()));
 
+		} else {
 			chain.doFilter(request,response);
 		}
 
 	    Log.out.info("SystemDateServletFilter#doFilter() end");
 	}
 
-	public void destroy() {}
-
+	/**
+	 * セッション情報の有無をチェックする
+	 */
 	private boolean sessionCheck(ServletRequest servletRequest, ServletResponse servletResponse) {
 	    if (servletRequest instanceof HttpServletRequest && servletResponse instanceof HttpServletResponse) {
 	        HttpServletRequest request = (HttpServletRequest) servletRequest;
@@ -75,48 +73,35 @@ public final class SystemDateServletFilter implements Filter{
 	        Log.out.info("servletPath:" + servletPath);
 	        Log.out.info("pathInfo:" + pathInfo);
 
-            // URLがJSF本来のものである場合
-	        /*
-            if ("/faces".equals(servletPath) && pathInfo != null && pathInfo.matches("^/screen/.+\\.xhtml$")) {
-            	if (!StringUtils.equalsAny(pathInfo, "/screen/login.xhtml", "/screen/regist.xhtml")) {
-                	execSessionCheck = true;
-            	}
-            }
-            */
-
+	        // ログイン画面と新規ユーザ登録画面の場合はセッションチェックをしない
             if (servletPath.matches("^/screen/.+\\.xhtml$")) {
+            	// 業務ロジックで使用するためのシステム日付を取得しておく
+        		retrieveSystemDate(servletRequest);
+
             	if (!StringUtils.equalsAny(servletPath, "/screen/login.xhtml", "/screen/regist.xhtml")) {
                 	execSessionCheck = true;
             	}
             }
 
-            // URLがPrettyFacesのものである場合
-            /*
-            if (!"/faces".equals(servletPath)) {
-            	if (!StringUtils.equalsAny(servletPath, "/login", "/regist", "/doc/contact.html", "/doc/contact.html", "/doc/privacy_policy.html", "/doc/rule.html")) {
-                	execSessionCheck = true;
-            	}
-            }
-            */
-
             // セッションチェック実行
             if (execSessionCheck) {
 		        if (loginSession.getLoginUser() == null) {
-		        	Log.out.info("セッション切れ");
+		        	Log.out.info("セッション情報なし");
 
-		        	// セッション切れの場合、クッキーログインを試みる
+		        	// セッション情報なしの場合、クッキーログインを試みる
 		        	boolean cookieLoginSuccess = loginLogic.cookieLogin(
 		        			request, (HttpServletResponse) servletResponse);
 
 		        	if (cookieLoginSuccess) {
 		        		Log.out.info("クッキーログインOK");
+
 		        	} else {
-		        		System.out.println("クッキーログインせずログインページに遷移する");
+		        		Log.out.info("クッキーログインせずログインページに遷移する");
 		        		return false;
 		        	}
 
 		        } else {
-		        	System.out.println( "セッションあり（特にやることなし）");
+		        	Log.out.info("セッション情報あり");
 		        }
             }
 	    } else {
@@ -126,5 +111,14 @@ public final class SystemDateServletFilter implements Filter{
 	    }
 
 	    return true;
+	}
+
+	/**
+	 * 後続の業務処理で使用するシステム日付を取得する
+	 */
+	private void retrieveSystemDate(ServletRequest servletRequest) {
+		SystemDate systemDate = systemDateDao.getSystemDate();
+		servletRequest.setAttribute(ApConst.REQUEST_KEY_SYSTEM_DATE, systemDate);
+		Log.out.info("システム日付：" + ApDateUtil.formatDateTime(systemDate.getSystemDate()));
 	}
 }
