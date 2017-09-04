@@ -17,6 +17,7 @@ import net.live_on.itariya.interseptor.GeneralInterceptor;
 import net.live_on.itariya.logic.ChecklistLogic;
 import net.live_on.itariya.util.ApDateUtil;
 import net.live_on.itariya.util.ApUtil;
+import net.live_on.itariya.util.Log;
 
 /**
  * チェックリスト画面ManagedBean
@@ -91,5 +92,14 @@ public class ChecklistAction implements Serializable {
 
     	// 保存後に再検索をしてVersion情報などを最新化する
         init();
+    }
+
+    /**
+     * チェックリスト画面から一定間隔でサブミットする際に実行するメソッド<br>
+     * セッションタイムアウトを回避するために使用する
+     */
+    @Interceptors(GeneralInterceptor.class)
+    public void saveSession() {
+    	Log.out.info(">>>>> savesession");
     }
 }

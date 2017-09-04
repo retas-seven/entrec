@@ -203,3 +203,7 @@ a.footer_linkstr {
 	text-decoration: none;
 	color: #075c74;
 }
+
+.display_none {
+    display: none;
+}

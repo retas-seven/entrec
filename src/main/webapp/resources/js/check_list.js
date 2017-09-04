@@ -1,6 +1,7 @@
 $(document).ready(function(){
-	//alert('js_test!!!!!');
-	//$('#calendar_date_inline').on('change',function() {
-	//    alert('js_test!!');
-	//});
+	setInterval("saveSession()", 55 * 60 * 1000);
 });
+
+function saveSession() {
+	$('#saveSessionBtn').click();
+}
