@@ -26,5 +26,8 @@ public class RegistForm implements Serializable {
     /** 確認用パスワード（一致チェック用） */
     @NameNotEmpty(name = "確認用パスワード")
     private String cofirmPassword;
+
+    /** 利用規約に同意する */
+    private boolean agreeContract;
 }
 

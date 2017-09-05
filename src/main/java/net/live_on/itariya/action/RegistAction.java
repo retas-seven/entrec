@@ -49,7 +49,7 @@ public class RegistAction implements Serializable {
     }
 
     /**
-     * パスワードと確認用パスワードの一致チェック
+     * 入力チェック
      * @return チェック結果
      */
     private boolean inputCheck() {
@@ -67,6 +67,13 @@ public class RegistAction implements Serializable {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "既に登録されているメールアドレスです。",  "");
             FacesContext.getCurrentInstance().addMessage(null, message);
     		ret = false;
+    	}
+
+    	// 利用規約の同意チェック
+    	if (!form.isAgreeContract()) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "利用規約に同意する必要があります。",  "");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            ret = false;
     	}
 
     	return ret;

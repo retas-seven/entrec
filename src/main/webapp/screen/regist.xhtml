@@ -37,6 +37,12 @@
 					<p>パスワード（確認用）</p>
 					<p:password id="confirmPassword" value="#{registAction.form.cofirmPassword}" size="60" />
 
+					<br /><br />
+					<p:link href="/doc/rule.html" target="_blank" value="利用規約" />
+					<h:outputText value="に同意する  :  " />
+	                <p:selectBooleanCheckbox value="#{registAction.form.agreeContract}" />
+					<br />
+
 					<hr style="margin: 30px 0px 15px 0px;"/>
 	                <p:commandButton id="saveBtn" value="登録" icon="ui-icon-check" action="#{registAction.regist}" update="growl"/>
 	                <p:commandButton id="backBtn" value="戻る" icon="ui-icon-arrowreturnthick-1-w" action="#{registAction.back}" immediate="true"/>
