@@ -16,7 +16,7 @@ import net.live_on.itariya.entity.SystemDate;
 public class ApDateUtil implements Serializable {
 
 	/**
-	 * SystemDateServletFilterでリクエストに設定したシステム日付を取得する。
+	 * SessionCheckServletFilterでリクエストに設定したシステム日付を取得する。
 	 * @return システム日付オブジェクト
 	 */
 	public static SystemDate getSystemDateObject() {
@@ -26,7 +26,7 @@ public class ApDateUtil implements Serializable {
 	}
 
 	/**
-	 * SystemDateServletFilterでリクエストに設定したシステム日付を取得する。
+	 * SessionCheckServletFilterでリクエストに設定したシステム日付を取得する。
 	 * @return システム日付
 	 */
 	public static Date getSystemDate() {
@@ -34,7 +34,7 @@ public class ApDateUtil implements Serializable {
 	}
 
 	/**
-	 * SystemDateServletFilterでリクエストに設定したシステム日付を取得する。
+	 * SessionCheckServletFilterでリクエストに設定したシステム日付を取得する。
 	 * @return システム日付
 	 */
 	public static Calendar getSystemDateCalendar() {

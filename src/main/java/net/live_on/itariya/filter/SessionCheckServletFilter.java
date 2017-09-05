@@ -24,8 +24,8 @@ import net.live_on.itariya.logic.LoginLogic;
 import net.live_on.itariya.util.ApDateUtil;
 import net.live_on.itariya.util.Log;
 
-@WebFilter(filterName="SystemDateServletFilter", urlPatterns="/*")
-public final class SystemDateServletFilter implements Filter{
+@WebFilter(filterName="SessionCheckServletFilter", urlPatterns="/*")
+public final class SessionCheckServletFilter implements Filter{
 
 	/** システム日付取得用DAO */
 	@Inject
@@ -45,7 +45,7 @@ public final class SystemDateServletFilter implements Filter{
      * entrec標準のフィルタ処理
      */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-		Log.out.info("SystemDateServletFilter#doFilter() start");
+		Log.out.info("SessionCheckServletFilter#doFilter() start");
 
 		// セッションチェックを実行する
 		boolean sessionCheckResult = sessionCheck(request, response);
@@ -58,7 +58,7 @@ public final class SystemDateServletFilter implements Filter{
 			chain.doFilter(request,response);
 		}
 
-	    Log.out.info("SystemDateServletFilter#doFilter() end");
+	    Log.out.info("SessionCheckServletFilter#doFilter() end");
 	}
 
 	/**
