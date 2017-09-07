@@ -26,7 +26,7 @@
 
 * JDK1.8
 
-* JavaEE7, JSF2.2
+* JavaEE7, JSF2.2, PrimeFaces, PrimeFaces Extensions
 
 * Eclipse
 
