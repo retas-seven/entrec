@@ -49,5 +49,8 @@
 
 * Chrome のみ（他のブラウザは動作未検証）
 
+## デモ
+
+<a href="http://itariya.live-on.net/entrec/" target="_blank">http://itariya.live-on.net/entrec/</a>
 
 
