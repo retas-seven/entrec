@@ -8,7 +8,7 @@ public class ApConst {
 	public static final String REQUEST_KEY_SYSTEM_DATE = "request_key_system_date";
 
 	/** メッセージをフラッシュスコープに設定するためのキー */
-	public static final String FLASH_KEY_MESSAGE = "flash_key_message";
+	public static final String FLASH_SCOPE_MESSAGE_KEY = "flash_scope_message_key";
 
 	/** 初期ページファイル名 */
 	public static final String LOGIN_PAGE = "/screen/login.xhtml?faces-redirect=true";
@@ -17,7 +17,7 @@ public class ApConst {
 	public static final String SESSION_CHECK_RESULT_LOGIN_PAGE = "/entrec/screen/login.xhtml";
 
 	/** アプリケーションエラーページファイル名 */
-	public static final String APP_ERROR_PAGE = "/screen/app_error.xhtml?faces-redirect=true";
+	public static final String APP_ERROR_PAGE = "/screen/notice.xhtml";
 
 	/** 新規登録ページファイル名 */
 	public static final String REGIST_PAGE = "/screen/regist.xhtml?faces-redirect=true";

@@ -10,6 +10,7 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.OptimisticLockException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -26,7 +27,25 @@ public class ApUtil {
 	public static void addMessage(String msg) {
     	FacesContext context = FacesContext.getCurrentInstance();
 		// アプリケーションエラー画面で表示するメッセージをフラッシュスコープに設定する
-    	context.getExternalContext().getFlash().put(ApConst.FLASH_KEY_MESSAGE, msg);
+    	context.getExternalContext().getFlash().put(ApConst.FLASH_SCOPE_MESSAGE_KEY, msg);
+	}
+
+	/**
+	 * セッション情報を破棄する
+	 */
+	public static void invalidateSession() {
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+    	HttpSession session = (HttpSession) externalContext.getSession(false);
+
+    	// セッション情報を破棄する
+    	if (session != null) {
+    	    try {
+    	        session.invalidate();
+    	    } catch (IllegalStateException ise) {
+    	    	Log.out.error("セッション情報削除処理で例外発生");
+    	    	throw new SystemException(ise);
+    	    }
+    	}
 	}
 
 	/**

@@ -1,21 +1,16 @@
 package net.live_on.itariya.exception;
 
+import lombok.Data;
+
+@Data
 public class ApplicationException extends RuntimeException {
 
-	private String errMsgId;
+	private String errMsg;
 
-	public ApplicationException(String errMsgId) {
+	public ApplicationException(String errMsg) {
 		super();
-		this.errMsgId = errMsgId;
+		this.errMsg = errMsg;
 	}
 
-	public String getErrMsgId() {
-		return errMsgId;
-	}
-
-	public void setErrMsgId(String errMsgId) {
-		this.errMsgId = errMsgId;
-	}
-
-
+	private ApplicationException() {}
 }

@@ -78,7 +78,7 @@ public final class SessionCheckServletFilter implements Filter{
             	// 業務ロジックで使用するためのシステム日付を取得しておく
         		retrieveSystemDate(servletRequest);
 
-            	if (!StringUtils.equalsAny(servletPath, "/screen/login.xhtml", "/screen/regist.xhtml")) {
+            	if (!StringUtils.equalsAny(servletPath, "/screen/login.xhtml", "/screen/regist.xhtml", "/screen/notice.xhtml")) {
                 	execSessionCheck = true;
             	}
             }
