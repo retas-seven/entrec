@@ -54,6 +54,9 @@ public class LoginAction implements Serializable {
     	if (loginResult) {
     		ret = ApConst.CHECKLIST_PAGE;
     	} else {
+    		// アプリケーションエラー動作確認用
+    		// throw new ApplicationException("メールアドレスまたはパスワードが無効です。");
+
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "メールアドレスまたはパスワードが無効です。",  "");
             FacesContext.getCurrentInstance().addMessage(null, message);
 

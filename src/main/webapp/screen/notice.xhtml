@@ -11,22 +11,28 @@
     <h:head>
         <meta charset="UTF-8" />
         <h:outputScript name="jsf.js" library="javax.faces"/>
-        <h:outputStylesheet name="/css/general.css" />
+        <h:outputStylesheet name="/css/doc_general.css" />
         <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/favicon.png']}"/>
-        <title>新規登録</title>
+        <title>通知</title>
     </h:head>
 
     <h:body styleClass="body_general">
+		<header class="top_bar">
+		    <img src="../resources/img/entrec_small.png" class="absolute-0" />
+		</header>
 
-		<!-- ヘッダーをインクルード -->
-		<ui:include src="template/top.xhtml" />
+		<article class="article_box">
+			<div class="error_msg_box">
+				<p><h:outputText value="#{flash.flash_scope_message_key}" escape="false" /></p>
 
-		<form jsf:id="fm">
-			<h:outputText value="#{flash.flash_scope_message_key}" escape="false" />
-		</form>
+				<hr style="margin-top: 10px;" />
 
-		<!-- フッターをインクルード -->
-	    <ui:include src="template/footer.xhtml" />
+				<p:button href="/screen/login.xhtml" icon="ui-icon-arrowreturnthick-1-w" value="リトライ" />
+			</div>
+		</article>
 
+		<footer class="footer_copyright">
+			© OSAWA APPS 2017
+		</footer>
     </h:body>
 </html>
