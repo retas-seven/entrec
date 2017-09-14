@@ -3,6 +3,7 @@ package net.live_on.itariya.interseptor;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 
+import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.interceptor.AroundInvoke;
@@ -12,6 +13,7 @@ import javax.interceptor.InvocationContext;
 import net.live_on.itariya.constant.ApConst;
 import net.live_on.itariya.exception.ApplicationException;
 import net.live_on.itariya.exception.SystemException;
+import net.live_on.itariya.logic.LogoutLogic;
 import net.live_on.itariya.util.ApUtil;
 import net.live_on.itariya.util.Log;
 
@@ -22,6 +24,10 @@ public class GeneralInterceptor implements Serializable {
 
 	/** コンストラクタ */
     public GeneralInterceptor(){}
+
+	/** ログアウト処理ロジック */
+	@EJB
+	LogoutLogic logoutLogic;
 
     /**
      * 処理前後のログ出力、実行した処理のエラーハンドリングを行う
@@ -51,13 +57,15 @@ public class GeneralInterceptor implements Serializable {
     		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
     		String next = externalContext.getRequestContextPath() + ApConst.APP_ERROR_PAGE;
     		externalContext.redirect(next);
-    		ApUtil.invalidateSession();
+    		logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
+    		// ApUtil.invalidateSession();
 
     		return null;
 
     	} catch (SystemException se) {
     		Log.out.error("SystemException発生：" + se.getMessage());
-    		ApUtil.invalidateSession();
+    		logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
+    		// ApUtil.invalidateSession();
     		throw se;
     	}
 
