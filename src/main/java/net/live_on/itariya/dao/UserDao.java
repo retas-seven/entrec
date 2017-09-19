@@ -13,6 +13,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import org.apache.commons.lang3.StringUtils;
+
 import net.live_on.itariya.entity.User;
 
 @Stateless
@@ -72,5 +74,21 @@ public class UserDao extends AbstractFacade<User> {
     	}
 
     	return true;
+    }
+
+    /**
+     * 新規ユーザIDを採番する
+     * @return 新規ユーザID
+     */
+    public String nextUserId() {
+    	Long count;
+    	String ret;
+    	TypedQuery<Long> query = em.createQuery(
+    			"select count(u) from User u", Long.class);
+
+    	count = query.getSingleResult();
+    	ret = StringUtils.leftPad(String.valueOf(count.intValue() + 1), 12, '0');
+
+        return ret;
     }
 }

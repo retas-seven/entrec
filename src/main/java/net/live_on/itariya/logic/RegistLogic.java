@@ -1,6 +1,5 @@
 package net.live_on.itariya.logic;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.ejb.EJB;
@@ -10,6 +9,7 @@ import javax.inject.Inject;
 import net.live_on.itariya.dao.UserDao;
 import net.live_on.itariya.entity.User;
 import net.live_on.itariya.form.RegistForm;
+import net.live_on.itariya.util.ApDateUtil;
 import net.live_on.itariya.util.CipherUtil;
 
 @Stateless
@@ -19,11 +19,13 @@ public class RegistLogic {
     RegistForm form;
 
 	@EJB
-	UserDao UserDao;
+	UserDao userDao;
 
 	public void registNewUser() {
-		String userId = new SimpleDateFormat("yyMMddHHmmss").format(new Date());
-		Date now = new Date();
+		Date now = ApDateUtil.getSystemDate();
+
+		// 新規ユーザID採番
+		String userId = userDao.nextUserId();
 
 		// 新規ユーザ登録
     	User user = new User();
@@ -35,11 +37,11 @@ public class RegistLogic {
 		user.setUpdateDate(now);
 		user.setUpdateUserId(userId);
 
-		UserDao.create(user);
+		userDao.create(user);
 	}
 
 	public boolean isRegisteredMail() {
-		boolean ret = UserDao.isRegisteredMail(form.getMail());
+		boolean ret = userDao.isRegisteredMail(form.getMail());
 		return ret;
 	}
 }
