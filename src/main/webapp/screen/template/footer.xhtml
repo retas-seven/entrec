@@ -1,14 +1,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
 	<ui:composition>
 	    <footer id="footer">
 			<div class="footer_link">
-				<a class="footer_linkstr" href="/entrec/doc/rule.html" target="_blank">利用規約</a>
+				<p:link href="/doc/rule.html" target="_blank" value="利用規約" styleClass="footer_linkstr" />
 				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/privacy_policy.html" target="_blank">プライバシーポリシー</a>
+				<p:link href="/doc/privacy_policy.html" target="_blank" value="プライバシーポリシー" styleClass="footer_linkstr" />
 				&#160;|&#160;
-				<a class="footer_linkstr" href="/entrec/doc/contact.html" target="_blank">お問い合わせ</a>
+				<p:link href="/doc/contact.html" target="_blank" value="お問い合わせ" styleClass="footer_linkstr" />
 			</div>
 			<div class="footer_copyright">
 				© OSAWA APPS 2017

@@ -202,6 +202,7 @@ input[type=radio] {
 a.footer_linkstr {
 	text-decoration: none;
 	color: #075c74;
+	font-size: 1.0em;
 }
 
 .display_none {
