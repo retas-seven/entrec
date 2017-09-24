@@ -10,7 +10,8 @@
 }
 
 .bg_image{
-	background-image:url(../img/bg_wave.jpg);
+	/* background-image:url(../img/bg_wave.jpg); */
+	background-image: url("#{resource['img/bg_wave.png']}");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -29,7 +30,8 @@
 	margin:0px;
 	/* background: #ffffff; */
 	/* background-image: url(../img/bg.png); */
-	background-image: url(/entrec/resources/img/bg_wave.png);
+	/* background-image: url(/entrec/resources/img/bg_wave.png); */
+	background-image: url("#{resource['img/bg_wave.png']}");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -79,12 +81,8 @@ html {
 .top_logout_button {
 	width: 40px;
 	height: 40px;
-	background-image: url(../img/logout.png);
-	background-repeat: no-repeat;
-}
-
-.logout_icon {
-	background-image: url(../img/logout.png) !important;
+	/* background-image: url(../img/logout.png); */
+	background-image: url("#{resource['img/logout.png']}");
 	background-repeat: no-repeat;
 }
 
@@ -154,7 +152,8 @@ input[type="checkbox"]:checked:before {
     width: 25px;
     height: 25px;
     /* background: url(../img/check_on6.png); */
-    background-image: url(/entrec/resources/img/check_on6.png);
+    /* background-image: url(/entrec/resources/img/check_on6.png); */
+    background-image: url("#{resource['img/check_on6.png']}");
     background-size: 25px 25px;
     outline: none;
 }
