@@ -29,6 +29,7 @@
 
 	                <p>メールアドレス</p>
 	                <p:inputText id="mail" value="#{registAction.form.mail}" size="60" />
+	                <p:watermark for="mail" value="foo@example.com" id="mail_watermark" />
 
 					<p>パスワード</p>
 			        <p:password id="password" value="#{registAction.form.password}" feedback="true" size="60"

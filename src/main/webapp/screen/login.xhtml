@@ -11,7 +11,7 @@
     <h:head>
         <meta charset="UTF-8" />
         <h:outputScript name="jsf.js" library="javax.faces"/>
-        <h:outputStylesheet name="/css/general.css" />
+        <h:outputStylesheet name="css/general.css" />
         <link rel="shortcut icon" type="image/x-icon" href="#{resource['img/favicon.png']}"/>
         <title>ログイン</title>
     </h:head>
@@ -32,6 +32,7 @@
 
 	                <p>メールアドレス</p>
 					<p:inputText id="mail" value="#{loginAction.form.mail}" size="60" />
+					<p:watermark for="mail" value="foo@example.com" id="mail_watermark" />
 
 					<p>パスワード</p>
 					<p:password id="password" value="#{loginAction.form.password}" size="60" />

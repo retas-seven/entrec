@@ -29,8 +29,8 @@
 .body_general{
 	margin:0px;
 	/* background: #ffffff; */
-	/* background-image: url(../img/bg.png); */
-	/* background-image: url(/entrec/resources/img/bg_wave.png); */
+	/* background-image: url("../img/bg_wave.png"); */
+	/* background-image: url("/entrec/resources/img/bg.png"); */
 	background-image: url("#{resource['img/bg_wave.png']}");
 	background-position: center center;
 	background-repeat: no-repeat;
