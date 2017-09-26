@@ -3,9 +3,9 @@ package net.live_on.itariya.dao;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import net.live_on.itariya.entity.CheckHistory;
@@ -14,7 +14,8 @@ import net.live_on.itariya.entity.CheckHistory;
 public class CheckHistoryDao extends AbstractFacade<CheckHistory> {
 
 	/** エンティティマネージャ */
-    @PersistenceContext(unitName = "entrecUnit")
+    //@PersistenceContext(unitName = "entrecUnit")
+	@Inject
 	protected EntityManager em;
 
     @Override

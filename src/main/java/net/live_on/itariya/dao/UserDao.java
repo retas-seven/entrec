@@ -8,9 +8,9 @@ package net.live_on.itariya.dao;
 
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +21,8 @@ import net.live_on.itariya.entity.User;
 public class UserDao extends AbstractFacade<User> {
 
 	/** エンティティマネージャ */
-    @PersistenceContext(unitName = "entrecUnit")
+    //@PersistenceContext(unitName = "entrecUnit")
+	@Inject
 	protected EntityManager em;
 
     @Override

@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import net.live_on.itariya.entity.SystemDate;
@@ -15,7 +15,8 @@ import net.live_on.itariya.entity.SystemDate;
 public class SystemDateDao extends AbstractFacade<SystemDate> {
 
 	/** エンティティマネージャ */
-    @PersistenceContext(unitName = "entrecUnit")
+    //@PersistenceContext(unitName = "entrecUnit")
+	@Inject
 	protected EntityManager em;
 
     @Override

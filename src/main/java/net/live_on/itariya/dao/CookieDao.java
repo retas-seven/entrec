@@ -8,9 +8,9 @@ package net.live_on.itariya.dao;
 
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import net.live_on.itariya.entity.UserCookie;
@@ -19,7 +19,8 @@ import net.live_on.itariya.entity.UserCookie;
 public class CookieDao extends AbstractFacade<UserCookie> {
 
 	/** エンティティマネージャ */
-    @PersistenceContext(unitName = "entrecUnit")
+	//@PersistenceContext(unitName = "entrecUnit")
+    @Inject
 	protected EntityManager em;
 
     @Override
