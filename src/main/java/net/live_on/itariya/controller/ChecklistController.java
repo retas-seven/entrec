@@ -1,4 +1,4 @@
-package net.live_on.itariya.action;
+package net.live_on.itariya.controller;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -25,7 +25,7 @@ import net.live_on.itariya.util.Log;
 @javax.inject.Named
 @javax.enterprise.context.SessionScoped
 @Data
-public class ChecklistAction implements Serializable {
+public class ChecklistController implements Serializable {
 	private static final long serialVersionUID = 1;
 
     /** チェックリスト画面フォーム */

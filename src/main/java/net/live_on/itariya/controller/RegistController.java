@@ -1,4 +1,4 @@
-package net.live_on.itariya.action;
+package net.live_on.itariya.controller;
 
 import java.io.Serializable;
 
@@ -22,7 +22,7 @@ import net.live_on.itariya.logic.RegistLogic;
 @Named
 @ViewScoped
 @Data
-public class RegistAction implements Serializable {
+public class RegistController implements Serializable {
 	private static final long serialVersionUID = 1;
 
     /** 登録画面フォーム */

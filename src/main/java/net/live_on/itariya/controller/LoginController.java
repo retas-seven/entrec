@@ -1,4 +1,4 @@
-package net.live_on.itariya.action;
+package net.live_on.itariya.controller;
 
 import java.io.Serializable;
 
@@ -23,7 +23,7 @@ import net.live_on.itariya.util.ApUtil;
 @Named
 @ViewScoped
 @Data
-public class LoginAction implements Serializable {
+public class LoginController implements Serializable {
 	private static final long serialVersionUID = 1;
 
     /** ログイン画面フォーム */

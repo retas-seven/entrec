@@ -10,11 +10,11 @@
 	<ui:composition template="/screen/template/checklist_template.xhtml">
 		<ui:define name="content">
 	        <f:metadata>
-				<f:viewAction action="#{checklistAction.init()}" onPostback="false" />
+				<f:viewAction action="#{checklistController.init()}" onPostback="false" />
 			</f:metadata>
 
 			<p:growl id="msgs" showDetail="true"/>
-		    <p:dataTable style="width:1100px;" class="center_table" id="tbl" var="row" value="#{checklistAction.checklistForm.checklistRowList}" editable="true" editMode="cell" >
+		    <p:dataTable style="width:1100px;" class="center_table" id="tbl" var="row" value="#{checklistController.checklistForm.checklistRowList}" editable="true" editMode="cell" >
 		    	<f:facet name="header">
 		            入退室記録
 		        </f:facet>

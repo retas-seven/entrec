@@ -19,7 +19,7 @@
         <h:outputStylesheet name="/css/general.css" />
         <h:form id="fm" prependId="false">
         	<!-- 一定間隔でサブミットしてセッションタイムアウトを回避するためのボタン -->
-        	<p:commandButton id="saveSessionBtn" ajax="true" actionListener="#{checklistAction.saveSession()}" value="saveSession" styleClass="display_none" />
+        	<p:commandButton id="saveSessionBtn" ajax="true" actionListener="#{checklistController.saveSession()}" value="saveSession" styleClass="display_none" />
 
         	<!-- ヘッダーをインクルード -->
        		<div id="top">

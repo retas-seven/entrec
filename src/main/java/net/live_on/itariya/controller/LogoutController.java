@@ -1,4 +1,4 @@
-package net.live_on.itariya.action;
+package net.live_on.itariya.controller;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ import net.live_on.itariya.util.ApUtil;
  */
 @Named
 @SessionScoped
-public class LogoutAction implements Serializable {
+public class LogoutController implements Serializable {
 	private static final long serialVersionUID = 1;
 
 	/** ログアウト処理ロジック */

@@ -18,7 +18,7 @@
 
     <h:body styleClass="body_general">
 		<f:metadata>
-			<f:viewAction action="#{loginAction.autoLogin()}" onPostback="true" />
+			<f:viewAction action="#{loginController.autoLogin()}" onPostback="true" />
 		</f:metadata>
 
 		<!-- ヘッダーをインクルード -->
@@ -31,20 +31,20 @@
 					<h:outputText value="#{flash.flash_key_message}" escape="false" />
 
 	                <p>メールアドレス</p>
-					<p:inputText id="mail" value="#{loginAction.form.mail}" size="60" />
+					<p:inputText id="mail" value="#{loginController.form.mail}" size="60" />
 					<p:watermark for="mail" value="foo@example.com" id="mail_watermark" />
 
 					<p>パスワード</p>
-					<p:password id="password" value="#{loginAction.form.password}" size="60" />
+					<p:password id="password" value="#{loginController.form.password}" size="60" />
 
 					<br /><br />
 					<h:outputText value="次回から入力を省略する  :  " />
-	                <p:selectBooleanCheckbox value="#{loginAction.form.autoLogin}" />
+	                <p:selectBooleanCheckbox value="#{loginController.form.autoLogin}" />
 
 					<br /><hr style="margin: 30px 0px 15px 0px;"/>
 
-	                <p:commandButton id="loginBtn" value="ログイン" icon="ui-icon-check" action="#{loginAction.login}" update="growl"/>
-	                <p:commandButton id="registBtn" value="新規登録" icon="ui-icon-arrowreturnthick-1-w" action="#{loginAction.regist}" immediate="true"/>
+	                <p:commandButton id="loginBtn" value="ログイン" icon="ui-icon-check" action="#{loginController.login}" update="growl"/>
+	                <p:commandButton id="registBtn" value="新規登録" icon="ui-icon-arrowreturnthick-1-w" action="#{loginController.regist}" immediate="true"/>
 	            </p:panel>
             </form>
         </div>

@@ -28,25 +28,25 @@
             		<h:outputText value="#{flash.flash_key_message}" escape="false" />
 
 	                <p>メールアドレス</p>
-	                <p:inputText id="mail" value="#{registAction.form.mail}" size="60" />
+	                <p:inputText id="mail" value="#{registController.form.mail}" size="60" />
 	                <p:watermark for="mail" value="foo@example.com" id="mail_watermark" />
 
 					<p>パスワード</p>
-			        <p:password id="password" value="#{registAction.form.password}" feedback="true" size="60"
+			        <p:password id="password" value="#{registController.form.password}" feedback="true" size="60"
 			                    promptLabel=" " weakLabel="強度：弱" goodLabel="強度：普通" strongLabel="強度：強" />
 
 					<p>パスワード（確認用）</p>
-					<p:password id="confirmPassword" value="#{registAction.form.cofirmPassword}" size="60" />
+					<p:password id="confirmPassword" value="#{registController.form.cofirmPassword}" size="60" />
 
 					<br /><br />
 					<p:link href="/doc/rule.html" target="_blank" value="利用規約" />
 					<h:outputText value="に同意する  :  " />
-	                <p:selectBooleanCheckbox value="#{registAction.form.agreeContract}" />
+	                <p:selectBooleanCheckbox value="#{registController.form.agreeContract}" />
 					<br />
 
 					<hr style="margin: 30px 0px 15px 0px;"/>
-	                <p:commandButton id="saveBtn" value="登録" icon="ui-icon-check" action="#{registAction.regist}" update="growl"/>
-	                <p:commandButton id="backBtn" value="戻る" icon="ui-icon-arrowreturnthick-1-w" action="#{registAction.back}" immediate="true"/>
+	                <p:commandButton id="saveBtn" value="登録" icon="ui-icon-check" action="#{registController.regist}" update="growl"/>
+	                <p:commandButton id="backBtn" value="戻る" icon="ui-icon-arrowreturnthick-1-w" action="#{registController.back}" immediate="true"/>
 	            </p:panel>
             </form>
         </div>
