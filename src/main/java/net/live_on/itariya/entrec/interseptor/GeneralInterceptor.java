@@ -38,7 +38,7 @@ public class GeneralInterceptor implements Serializable {
     public Object intercept(InvocationContext context) throws Exception {
     	Class clazz = context.getMethod().getDeclaringClass();
     	Method method = context.getMethod();
-    	Object ret;
+    	Object ret = null;
 
         // 業務処理開始ログ
     	Log.out.info(clazz.getCanonicalName() + "#" + method.getName() + "() start");
@@ -67,10 +67,11 @@ public class GeneralInterceptor implements Serializable {
     		logoutLogic.logout(ApUtil.getRequest(), ApUtil.getResponse());
     		// ApUtil.invalidateSession();
     		throw se;
-    	}
 
-        // 終了ログ
-        Log.out.info(clazz.getCanonicalName() + "#" + method.getName() + "() end return：" + ret);
+    	} finally {
+	        // 終了ログ
+	        Log.out.info(clazz.getCanonicalName() + "#" + method.getName() + "() end return：" + ret);
+    	}
 
         return ret;
     }
