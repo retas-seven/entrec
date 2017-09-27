@@ -5,7 +5,7 @@
        bean-discovery-mode="annotated">
 
     <interceptors>
-        <class>net.live_on.itariya.interseptor.GeneralInterceptor</class>
+        <class>net.live_on.itariya.entrec.interseptor.GeneralInterceptor</class>
     </interceptors>
 
 </beans>
