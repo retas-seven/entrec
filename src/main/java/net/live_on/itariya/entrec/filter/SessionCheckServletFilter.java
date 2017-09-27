@@ -45,7 +45,7 @@ public final class SessionCheckServletFilter implements Filter{
      * entrec標準のフィルタ処理
      */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-		Log.out.info("SessionCheckServletFilter#doFilter() start");
+//		Log.out.info("SessionCheckServletFilter#doFilter() start");
 
 		// セッションチェックを実行する
 		boolean sessionCheckResult = sessionCheck(request, response);
@@ -58,7 +58,7 @@ public final class SessionCheckServletFilter implements Filter{
 			chain.doFilter(request,response);
 		}
 
-	    Log.out.info("SessionCheckServletFilter#doFilter() end");
+//	    Log.out.info("SessionCheckServletFilter#doFilter() end");
 	}
 
 	/**
@@ -70,8 +70,8 @@ public final class SessionCheckServletFilter implements Filter{
 	        boolean execSessionCheck = false;
 	        String servletPath = request.getServletPath();
 	        String pathInfo = request.getPathInfo();
-	        Log.out.info("servletPath:" + servletPath);
-	        Log.out.info("pathInfo:" + pathInfo);
+//	        Log.out.info("servletPath:" + servletPath);
+//	        Log.out.info("pathInfo:" + pathInfo);
 
 	        // ログイン画面と新規ユーザ登録画面の場合はセッションチェックをしない
             if (servletPath.matches("^/screen/.+\\.xhtml$")) {
