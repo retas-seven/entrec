@@ -17,6 +17,7 @@ import net.live_on.itariya.entrec.entity.User;
 import net.live_on.itariya.entrec.entity.UserCookie;
 import net.live_on.itariya.entrec.entity.UserCookiePK;
 import net.live_on.itariya.entrec.form.LoginForm;
+import net.live_on.itariya.entrec.util.ApDateUtil;
 import net.live_on.itariya.entrec.util.ApUtil;
 import net.live_on.itariya.entrec.util.CipherUtil;
 import net.live_on.itariya.entrec.util.CookieUtil;
@@ -68,7 +69,7 @@ public class LoginLogic {
 	}
 
 	private void registCookie(String userId, HttpServletRequest request, HttpServletResponse response) {
-		Date now = new Date();
+		Date now = ApDateUtil.getSystemDate();
         String cookieValue = ApUtil.createAutoLoginCookieValue();
 
         // ブラウザに渡すクッキーを作成
