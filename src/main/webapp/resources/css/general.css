@@ -167,6 +167,10 @@ input[type="checkbox"]:checked:before {
     outline: none;
 }
 
+input[type="checkbox"]:hover {
+	background-image: url("#{resource['img/checkbox_hover.png']}");
+}
+
 input[type=radio] {
 	position: absolute;
 	z-index: -1;
