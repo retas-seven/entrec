@@ -18,9 +18,6 @@
     <h:body styleClass="body_general">
         <h:outputStylesheet name="/css/general.css" />
         <h:form id="fm" prependId="false">
-        	<!-- 一定間隔でサブミットしてセッションタイムアウトを回避するためのボタン -->
-        	<p:commandButton id="saveSessionBtn" ajax="true" actionListener="#{checklistController.saveSession()}" value="saveSession" styleClass="display_none" />
-
         	<!-- ヘッダーをインクルード -->
        		<div id="top">
 	            <ui:insert name="top">
@@ -42,6 +39,8 @@
 	            </div>
 		    </div>
 
+        	<!-- 一定間隔でサブミットしてセッションタイムアウトを回避するためのボタン -->
+        	<p:commandButton id="saveSessionBtn" ajax="true" actionListener="#{checklistController.saveSession()}" value="saveSession" styleClass="display_none" />
 		</h:form>
 
 		<!-- フッターをインクルード -->
