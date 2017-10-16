@@ -14,7 +14,8 @@
 			</f:metadata>
 
 			<p:growl id="msgs" showDetail="true"/>
-		    <p:dataTable style="width:1100px;" class="center_table" id="tbl" var="row" value="#{checklistController.checklistForm.checklistRowList}" editable="true" editMode="cell" >
+
+		    <p:dataTable style="width: 1100px;" class="center_table" id="tbl" var="row" value="#{checklistController.checklistForm.checklistRowList}" editable="true" editMode="cell" stickyHeader="true">
 		    	<f:facet name="header">
 		            入退室記録
 		        </f:facet>
@@ -79,6 +80,7 @@
 					&#160;
 		        </f:facet>
 			</p:dataTable>
+
 		</ui:define>
 	</ui:composition>
 </html>
