@@ -5,15 +5,12 @@ $(document).ready(function(){
 	setInterval("saveSession()", 55 * 60 * 1000);
 
 	//------------------------------------------------
-	// 一覧のタイトル行のfixed
+	// 画面右側コンポーネントのfixed
 	//------------------------------------------------
     var nav = jQuery('#right_component');
-
-    // メニューのtop座標を取得する
     var offsetTop = nav.offset().top - 45;
-
     var floatMenu = function() {
-        // スクロール位置がメニューのtop座標を超えたら固定にする
+        // スクロール位置による固定
         if (jQuery(window).scrollTop() > offsetTop) {
         	nav.addClass('fixed');
         } else {
