@@ -12,6 +12,16 @@
     z-index: 1;
 }
 
+.fixed_header {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+}
+
+.ui-datatable-empty-message {
+    display: none;
+}
+
 .ui-clock {
 	font-size: 1.2em;
 	/* font-family: sans-serif; */
