@@ -1,7 +1,15 @@
+/*
 #tbl > .ui-shadow {
     moz-box-shadow: 0 0px 0px rgba(0,0,0,0.8);
     -webkit-box-shadow: 0 0px 0px rgba(0,0,0,0.8);
     box-shadow: 0 0px 0px rgba(0,0,0,0.8);
+}
+*/
+
+.fixed {
+    position: fixed;
+    top: 20px;
+    z-index: 1;
 }
 
 .ui-clock {
