@@ -8,7 +8,7 @@ $(document).ready(function(){
 	// 画面右側コンポーネントのfixed
 	//------------------------------------------------
     var nav = jQuery('#right_component');
-    var offsetTop = nav.offset().top - 45;
+    var offsetTop = nav.offset().top - 25;
     var floatMenu = function() {
         // スクロール位置による固定
         if (jQuery(window).scrollTop() > offsetTop) {

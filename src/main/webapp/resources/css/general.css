@@ -8,8 +8,13 @@
 
 .fixed {
     position: fixed;
-    top: 20px;
+    top: 0px;
     z-index: 1;
+}
+
+.hidden {
+    position: absolute;
+    top: -1000px;
 }
 
 .fixed_header {
