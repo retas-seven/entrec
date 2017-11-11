@@ -38,6 +38,13 @@ public class RegistLogic {
 		user.setUpdateUserId(userId);
 
 		userDao.create(user);
+
+		// 登録確認メール送信
+		// ※メールを送信する場合、entrec_general.propertiesの
+		//  「mailaddress.from」および「mailaddress.from.password」に
+		//   送信元メールアカウントを設定し「MailUtil.send(form.getMail());」の
+		//   コメントを解除します。
+		//MailUtil.send(form.getMail());
 	}
 
 	public boolean isRegisteredMail() {

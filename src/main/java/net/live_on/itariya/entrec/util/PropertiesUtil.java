@@ -6,11 +6,8 @@ public class PropertiesUtil {
 	/** Entrec共通プロパティファイル名 */
 	private static final String PROPERTY_FILE = "entrec_general";
 
-	/** DB接続ユニット名 */
-	public static final String UNIT_NAME = "unit_name";
-
 	/**
-	 * Entrec共通プロパティファイルのリソースバンドルを取得する
+	 * entrec共通プロパティファイルのリソースバンドルを取得する
 	 * @return プロパティファイルのリソースバンドル
 	 */
 	public static ResourceBundle getBundle() {
@@ -19,7 +16,7 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * Entrec共通プロパティファイルから値を取得する
+	 * entrec共通プロパティファイルから値を取得する
 	 * @param propertieFileKey プロパティファイルのキー
 	 * @return プロパティファイルから取得した値
 	 */
@@ -31,7 +28,7 @@ public class PropertiesUtil {
 	}
 
 	/**
-	 * Entrec共通プロパティファイルから値を取得する
+	 * entrec共通プロパティファイルから値を取得する
 	 * @param propertieFileKey プロパティファイルのキー
 	 * @return プロパティファイルから取得した値
 	 */
