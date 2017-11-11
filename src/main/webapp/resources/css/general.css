@@ -50,6 +50,7 @@
 .bg_image{
 	/* background-image:url(../img/bg_wave.jpg); */
 	background-image: url("#{resource['img/bg_wave.png']}");
+	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -70,6 +71,7 @@
 	/* background-image: url("../img/bg_wave.png"); */
 	/* background-image: url("/entrec/resources/img/bg.png"); */
 	background-image: url("#{resource['img/bg_wave.png']}");
+	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
